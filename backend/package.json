@@ -1,0 +1,22 @@
+{
+  "name": "team-backend-app",
+  "version": "1.0.1",
+  "description": "backend project for mean-stack",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [
+    "mean-stack",
+    "nodejs"
+  ],
+  "author": "Yunqi Shen, Haiyan Yao, Igor Eskin",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "mongoose": "^5.4.16",
+    "multer": "^1.4.1"
+  }
+}
