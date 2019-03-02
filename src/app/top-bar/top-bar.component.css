@@ -1,0 +1,32 @@
+#top-bar{
+    border: 1px solid;
+    border-top-color: #E5E4E5;
+    border-bottom-color: #010101;
+    width: 100%;
+    display: inline-block;
+}
+#logo {
+    display: block;
+    float: left;
+    background-color: #E06D36;
+    color: white;
+    cursor: pointer;
+}
+#buttons-div {
+    display: block;
+    float: right;
+}
+.buttons{
+    display: inline-block;
+    /* background-color: antiquewhite; */
+    padding: 0;
+    cursor: pointer;
+    -webkit-user-select: none; /* Safari */        
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+/Edge */
+    user-select: none; /* Standard */
+}
+.empty{
+    display: block;
+    float: right;
+}
