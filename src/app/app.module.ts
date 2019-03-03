@@ -6,12 +6,14 @@ import { AppComponent } from './app.component';
 import { TopBarComponent } from './top-bar/top-bar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginComponent } from './login/login.component';
+import { ResourcePageComponent } from './resource-page/resource-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TopBarComponent,
-    LoginComponent
+    LoginComponent,
+    ResourcePageComponent
   ],
   imports: [
     BrowserModule,
