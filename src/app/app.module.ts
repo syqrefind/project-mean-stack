@@ -6,19 +6,38 @@ import { AppComponent } from './app.component';
 import { TopBarComponent } from './top-bar/top-bar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginComponent } from './login/login.component';
-import { SideNavComponent } from './side-nav/side-nav.component';
+import { RegistrationComponent } from './registration/registration.component';
+
+import { MatNativeDateModule, MatDatepickerModule, MatIconModule,
+  MatButtonModule, MatCheckboxModule, MatToolbarModule, MatCardModule,
+  MatFormFieldModule, MatInputModule, MatRadioModule,
+  MatListModule} from '@angular/material';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
     TopBarComponent,
     LoginComponent,
-    SideNavComponent
+    RegistrationComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatNativeDateModule,
+    MatDatepickerModule,
+    MatIconModule,
+    MatButtonModule,
+    MatCheckboxModule,
+    MatToolbarModule,
+    MatCardModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatRadioModule,
+    MatListModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
