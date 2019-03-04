@@ -18,17 +18,18 @@
 
   .slider {
       width: 20%;
-      min-width: 215px;
+      min-width: 225px;
       background-color: #000000;
-      color: #999999;
+      color: #f7f7f7;
       z-index: 1;
+      font-family: 'Quicksand', sans-serif;
   }
 
   .toggle-box {
     float: left;
     width: 20px;
     background-color: #000000;
-    color: #999999;
+    color: #f7f7f7;
     border-radius: 0px 7px 7px 0px;
     height: 30px;
     font-size: 20px;
