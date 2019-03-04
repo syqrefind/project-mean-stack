@@ -4,6 +4,9 @@
     border-bottom-color: #010101;
     width: 100%;
     display: inline-block;
+    z-index: 10;
+    overflow: visible;
+    position: relative;
 }
 #logo {
     display: block;
@@ -12,7 +15,9 @@
     color: white;
     cursor: pointer;
     width: 20%;
-    min-width: 210px;
+    min-width: 215px;
+    padding-bottom: 5px;
+    padding-top: 5px;
 }
 #buttons-div {
     display: block;
