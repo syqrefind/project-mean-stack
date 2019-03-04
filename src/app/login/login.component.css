@@ -1,5 +1,30 @@
-whole-thing {
+#whole-thing {
+    margin-left: 36%;
+    margin-right: 36%;
+    margin-top: 5%;
+    /* background-color: aqua; */
+    border: 1px solid black;
+    height: 50%;
+}
+
+#login-logo {
     text-align: center;
-    margin:auto;
-    float: middle;
+    display: inline-block;
+    color: #E68646;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 500%;
+}
+
+#form-div{
+    text-align: center;
+}
+
+#login-button {
+    background-color: #EB5327;
+    border:none;
+    text-align: center;
+    padding: 15px 32px;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
 }
