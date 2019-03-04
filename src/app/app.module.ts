@@ -14,6 +14,7 @@ import { MatNativeDateModule, MatDatepickerModule, MatIconModule,
   MatListModule} from '@angular/material';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ResourcePageComponent } from './resource-page/resource-page.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { ResourcePageComponent } from './resource-page/resource-page.component';
     TopBarComponent,
     LoginComponent,
     RegistrationComponent,
-    ResourcePageComponent
+    ResourcePageComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
