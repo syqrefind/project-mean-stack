@@ -13,13 +13,15 @@ import { MatNativeDateModule, MatDatepickerModule, MatIconModule,
   MatFormFieldModule, MatInputModule, MatRadioModule,
   MatListModule} from '@angular/material';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ResourcePageComponent } from './resource-page/resource-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TopBarComponent,
     LoginComponent,
-    RegistrationComponent
+    RegistrationComponent,
+    ResourcePageComponent
   ],
   imports: [
     BrowserModule,
