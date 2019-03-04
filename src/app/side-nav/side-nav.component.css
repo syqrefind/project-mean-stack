@@ -7,15 +7,16 @@
     min-height: 100%;
   }
   
-  .example-events {
+  /* .example-events {
     width: 300px;
     height: 200px;
     overflow: auto;
     border: 1px solid #555;
-  }
+  } */
 
   .slider {
-      min-width: 18%;
+      width: 20%;
+      min-width: 210px;
       background-color: #000000;
       color: #999999;
   }
@@ -23,13 +24,12 @@
   .toggle-box {
     float: left;
     width: 20px;
-    height: 20px;
-    /* margin: 5px; */
     background-color: #000000;
     color: #999999;
     border-radius: 0px 7px 7px 0px;
     height: 30px;
     font-size: 20px;
-    /* width: 5% !important; */
     padding-bottom: 35px;
+    padding-left: 42px;
+    margin-left: -32px;
   }

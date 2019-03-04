@@ -6,7 +6,7 @@
     <p>Formula</p>
   </mat-sidenav>
 
-  <mat-sidenav-content>
+  <mat-sidenav-content class="content">
     <p *ngIf="!opened"><button class="toggle-box" mat-button (click)="sidenav.toggle()">></button></p>
     <p *ngIf="opened"><button class="toggle-box" mat-button (click)="sidenav.toggle()"><</button></p>
     <!-- <p>Events:</p>

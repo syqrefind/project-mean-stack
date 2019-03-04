@@ -11,6 +11,8 @@
     background-color: #E06D36;
     color: white;
     cursor: pointer;
+    width: 20%;
+    min-width: 210px;
 }
 #buttons-div {
     display: block;
