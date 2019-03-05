@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TopBarComponent implements OnInit {
 
+  popoverTitle = "Cost Manager Member since November-2015";
+
   constructor() { }
 
   ngOnInit() {

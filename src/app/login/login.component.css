@@ -45,11 +45,12 @@ strong {
     margin-bottom: 10px;
 }
 
-input[type='text'].ng-invalid.ng-touched.ng-dirty {
+input[type='text'].ng-invalid.ng-touched,
+input[type='password'].ng-invalid.ng-touched {
     border: 1px solid red;
 }
 
-input[type='text'] {
+input[type='text'], input[type='password'] {
     min-width: 100%;
     margin-bottom: 3px;
     height: 45px;

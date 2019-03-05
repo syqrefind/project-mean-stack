@@ -39,3 +39,15 @@
     display: block;
     float: right;
 }
+
+.buttons #left-button {
+    text-align: center;
+}
+
+/* .popover-header.ng-star-inserted {
+    text-align: center;
+}
+
+.popover-body {
+    text-align: center;
+} */
