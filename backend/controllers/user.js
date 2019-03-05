@@ -1,6 +1,5 @@
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
-
 const User = require("../models/user");
 
 exports.createUser = (req, res, next) => {
@@ -32,6 +31,7 @@ exports.userLogin = (req, res, next) => {
       if (!user) {
         return res.status(401).json({
           message: "Auth failed"
+          // user not found
         });
       }
       fetchedUser = user;
@@ -41,6 +41,7 @@ exports.userLogin = (req, res, next) => {
       if (!result) {
         return res.status(401).json({
           message: "Auth failed"
+          // no result
         });
       }
       const token = jwt.sign(
@@ -57,6 +58,7 @@ exports.userLogin = (req, res, next) => {
     .catch(err => {
       return res.status(401).json({
         message: "Invalid authentication credentials!"
+        // problem occurs when generating or sending jwt to frontend
       });
     });
 }
