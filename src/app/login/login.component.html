@@ -2,25 +2,30 @@
   <div id='login-logo'>
     Login
   </div>
-  <div id='form-div'>
+  <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+    <div id='form-div' ngModelGroup="userData" #userData="ngModelGroup">
       <strong>Username</strong>&nbsp;<br>
-      <input type='text'/>
+      <input type='text' ngModel name='username' id="username" required/>
+      <span class="help-block" *ngIf="!username.valid && username.touched">Please enter a valid email!</span>
       <br>
       <strong>Password</strong>&nbsp;<br>
-      <input type='text'/>
+      <input type='text'name='password' required/>
       <br>
-      <button id='login-button' type='button'>Login</button>
+      <button id='login-button' type='submit' [disabled]="!f.valid">Login</button>
       <br>
 
-      <!-- <input type='checkbox'><span>&nbsp;Remember me</span> -->
       <div class="custom-control custom-checkbox">
         <input type="checkbox" class="custom-control-input" id="customCheck">
         <label class="custom-control-label" for="customCheck">Remember me</label>
       </div>
       <br><br><br>
-      <button type='button'>Sign up</button>
-      <a [routerLink]="['/a']" routerLinkActive="router-link-active" [queryParams]="{msg: doomed}">Forgot password?</a>
-  </div>
+      <div class="submit">
+        <button id='submit-button' type='submit'>sign up</button>
+        <a [routerLink]="['/a']" routerLinkActive="router-link-active" [queryParams]="{msg: doomed}">
+          <span id="forgot">Forgot password?</span></a>
+      </div>
+    </div>
+  </form>
   
 </div>
 

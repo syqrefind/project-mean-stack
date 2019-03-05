@@ -37,11 +37,16 @@
     width: 100%;
     margin-top: 10px;
     margin-bottom: 10px;
+    cursor: pointer;
 }
 
 strong {
     float: left;
     margin-bottom: 10px;
+}
+
+input[type='text'].ng-invalid.ng-touched.ng-dirty {
+    border: 1px solid red;
 }
 
 input[type='text'] {
@@ -70,6 +75,30 @@ span {
 
 .custom-control-input:focus ~ .custom-control-label::before {
     box-shadow:none !important;
+}
+
+.submit {
+    text-align: left;
+}
+
+#submit-button {
+    background-color: #EB5327;
+    border: none;
+    color: white;
+    height: 38px;
+    float: left;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-left: -130px;;
+}
+
+a {
+    float: right;
+}
+
+#forgot {
+    margin-top: 7px;
+    color: black;
 }
 
 
