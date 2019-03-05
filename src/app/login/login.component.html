@@ -5,11 +5,14 @@
   <form (ngSubmit)="onSubmit(f)" #f="ngForm">
     <div id='form-div' ngModelGroup="userData" #userData="ngModelGroup">
       <strong>Username</strong>&nbsp;<br>
-      <input type='text' ngModel name='username' id="username" required/>
-      <span class="help-block" *ngIf="!username.valid && username.touched">Please enter a valid email!</span>
+      <input type='text' #username ="ngModel" ngModel name='username' id="username" required email/>
+      <br *ngIf="!username.valid && username.touched">
+      <span class="help-block" *ngIf="!username.valid && username.touched">Please enter a valid username!</span>
       <br>
       <strong>Password</strong>&nbsp;<br>
-      <input type='text'name='password' required/>
+      <input type='password' #password="ngModel" ngModel name='password' required minlength="8"/>
+      <br *ngIf="!password.valid && password.touched">
+      <span class="help-block" *ngIf="!password.valid && password.touched">A password must be at least 8 characters long!</span>
       <br>
       <button id='login-button' type='submit' [disabled]="!f.valid">Login</button>
       <br>

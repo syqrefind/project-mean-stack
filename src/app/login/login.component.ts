@@ -9,14 +9,16 @@ import { NgForm } from '@angular/forms';
 export class LoginComponent implements OnInit {
   @ViewChild('f') signupForm: NgForm;
   username = '';
+  password = '';
 
   onSubmit() {
-    
+
   }
 
   constructor() { }
 
   ngOnInit() {
+    console.log(this.signupForm);
   }
 
 }
