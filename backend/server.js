@@ -1,17 +1,52 @@
-const Joi = require('joi');
-Joi.objectId = require('joi-objectid')(Joi);
-const mongoose = require('mongoose');
-const users = require('./routes/user');
-const express = require('express');
-const app = express();
- 
-mongoose.connect(
-    "mongodb+srv://HaiyanYao:Yhy025025@cluster0-xxw5x.mongodb.net/test?retryWrites=true",{ useNewUrlParser: true })
-    .then(() => console.log('Now connected to MongoDB!'))
-    .catch(err => console.error('Something went wrong', err));
- 
-app.use(express.json());
-app.use('/api/users', users);
- 
-const port = process.env.PORT || 4000;
-app.listen(port, () => console.log(`Listening on port ${port}...`));
+const app = require("./app");
+const debug = require("debug")("node-angular");
+const http = require("http");
+
+const normalizePort = val => {
+  var port = parseInt(val, 10);
+
+  if (isNaN(port)) {
+    // named pipe
+    return val;
+  }
+
+  if (port >= 0) {
+    // port number
+    return port;
+  }
+
+  return false;
+};
+
+const onError = error => {
+  if (error.syscall !== "listen") {
+    throw error;
+  }
+  const bind = typeof addr === "string" ? "pipe " + addr : "port " + port;
+  switch (error.code) {
+    case "EACCES":
+      console.error(bind + " requires elevated privileges");
+      process.exit(1);
+      break;
+    case "EADDRINUSE":
+      console.error(bind + " is already in use");
+      process.exit(1);
+      break;
+    default:
+      throw error;
+  }
+};
+
+const onListening = () => {
+  const addr = server.address();
+  const bind = typeof addr === "string" ? "pipe " + addr : "port " + port;
+  debug("Listening on " + bind);
+};
+
+const port = normalizePort(process.env.PORT || "3000");
+app.set("port", port);
+
+const server = http.createServer(app);
+server.on("error", onError);
+server.on("listening", onListening);
+server.listen(port);
