@@ -25,10 +25,10 @@ export class SideNavComponent implements OnInit {
   }
 
   onClick(event) {
-    var target = event.target || event.srcElement || event.currentTarget;
-    var idAttr = target.attributes.href.nodeValue;
+    const target = event.target || event.srcElement || event.currentTarget;
+    const idAttr = target.attributes.href.nodeValue;
     this.htmlId = idAttr;
-    console.log(this.htmlId)
+    console.log(this.htmlId);
     this.activatedRoute.url
     .subscribe(url => console.log('The URL changed to ' + url));
   }
