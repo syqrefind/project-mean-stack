@@ -2,37 +2,26 @@
     margin-left: 38%;
     margin-right: 38%;
     margin-top: 5%;
-    /* background-color: aqua; */
-    /* border: 1px solid black; */
-    /* height: 80%; */
     text-align: center;
 }
 
 #login-logo {
     display: inline-block;
     color: #E68646;
-    /* font-family: 'Quicksand', sans-serif; */
     font-family: 'Roboto', sans-serif;
     font-size: 500%;
     font-style: italic;
     text-shadow: 1.5px 1px #a36b42;
-    /* font-weight: 500; */
     margin: auto;
 }
-
-/* #form-div{
-    text-align: center;
-} */
 
 #login-button {
     background-color: #EB5327;
     color: white;
     border: none;
     text-align: center;
-    /* padding: 15px 32px; */
     text-decoration: none;
     display: inline-block;
-    /* font-size: 16px; */
     height: 45px;
     width: 100%;
     margin-top: 10px;
@@ -70,7 +59,6 @@ span {
 
 .custom-control {
     float: left;
-    /* margin-top: 10px; */
     margin-bottom: 100px;
 }
 

@@ -1,9 +1,25 @@
+#table {
+    margin-left: 3.6%;
+    margin-right: 3.3%;
+    margin-top: 5%;
+    text-align: center;
+    border:1px solid gray;
+    margin-bottom: 4.4%;
+}
+#search-keyword {
+    width:17%;
+    height:38px;
+    top:8%;
+    left:1%;
+    float:left;
+}
 .btn.btn-success {
     color: #ffffff;
     background-color: #e07604;
     background-image: linear-gradient(to bottom, #f0812b, #e07604);
     border-color: #e07604 #e07604 #e07604;
 }
+
 .btn.btn-success:hover {
     color: #ffffff;
     background-color: #e07604;
@@ -12,4 +28,9 @@
 }
 li{
     font-size:13px;
+}
+.fa-search{
+    margin-left: -5px;
+    /* margin-right: 5px; */
+    padding:0;
 }

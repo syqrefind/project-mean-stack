@@ -6,4 +6,4 @@ const resourceSchema = mongoose.Schema({    // schema - collections
   creator: { type: mongoose.Schema.Types.ObjectId, ref: "User", required: true }
 });
 
-module.exports = mongoose.model("Resource", resourceSchema);
+module.exports = mongoose.model("Resource", resourceSchema, 'resource');
