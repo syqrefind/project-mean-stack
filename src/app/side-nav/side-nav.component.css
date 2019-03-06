@@ -40,3 +40,20 @@
   }
 
   button:focus {outline:0;}
+
+  a {
+    color: #f7f7f7;
+    text-decoration: none;
+  }
+
+  a:active {
+    color: #c25219;
+  }
+
+  .red {
+    color: #c25219;
+  }
+
+  .white {
+    color: #f7f7f7;
+  }
