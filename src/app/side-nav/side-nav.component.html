@@ -2,9 +2,15 @@
   <mat-sidenav class="slider" #sidenav mode="side" [(opened)]="opened" (opened)="events.push('open!')"
                (closed)="events.push('close!')">
     <br>
-    <p>&nbsp;&nbsp;&nbsp;Resource</p>
-    <p>&nbsp;&nbsp;&nbsp;Project</p>
-    <p>&nbsp;&nbsp;&nbsp;Formula</p>
+    <p id='resource' (click)="onClick($event)">
+      <a [className]="htmlId == '/resource' ? 'red' : 'white'" routerLink='/resource'>&nbsp;&nbsp;&nbsp;Resource</a>
+    </p>
+    <p id='project' (click)="onClick($event)">
+      <a [className]="htmlId == '/project' ? 'red' : 'white'" routerLink='/project'>&nbsp;&nbsp;&nbsp;Project</a>
+    </p>
+    <p id='formula' (click)="onClick($event)">
+      <a [className]="htmlId == '/formula' ? 'red' : 'white'" routerLink='/formula'>&nbsp;&nbsp;&nbsp;Formula</a>
+    </p>
   </mat-sidenav>
 
   <mat-sidenav-content class="content">

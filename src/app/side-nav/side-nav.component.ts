@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-side-nav',
@@ -7,16 +8,29 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SideNavComponent implements OnInit {
 
+  currentPage = "login";
+
+  constructor(private activatedRoute: ActivatedRoute) { }
+
   events: string[] = [];
   opened: boolean;
+  url: string;
+  htmlId: any;
 
   // shouldRun = [/(^|\.)plnkr\.co$/, /(^|\.)stackblitz\.io$/].some(h => h.test(window.location.host));
 
   shouldRun = true;
 
-  constructor() { }
-
   ngOnInit() {
+  }
+
+  onClick(event) {
+    var target = event.target || event.srcElement || event.currentTarget;
+    var idAttr = target.attributes.href.nodeValue;
+    this.htmlId = idAttr;
+    console.log(this.htmlId)
+    this.activatedRoute.url
+    .subscribe(url => console.log('The URL changed to ' + url));
   }
 
 }
