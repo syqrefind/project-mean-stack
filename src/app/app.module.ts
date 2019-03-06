@@ -10,6 +10,11 @@ import { LoginComponent } from './login/login.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { SideNavComponent } from './side-nav/side-nav.component';
 
+import { HttpClientModule } from '@angular/common/http';
+
+
+
+
 import { MatNativeDateModule, MatDatepickerModule, MatIconModule,
   MatButtonModule, MatCheckboxModule, MatToolbarModule, MatCardModule,
   MatFormFieldModule, MatInputModule, MatRadioModule,
@@ -47,6 +52,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ResourcePageComponent } from './resource-page/resource-page.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -56,6 +62,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     ResourcePageComponent,
     PageNotFoundComponent,
     SideNavComponent,
+    RegistrationComponent
   ],
   imports: [
     BrowserModule,
@@ -108,8 +115,9 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     MatTabsModule,
     MatToolbarModule,
     MatTooltipModule,
-    MatTreeModule, 
-    NgbModule
+    MatTreeModule,
+    NgbModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
