@@ -51,6 +51,8 @@ import {
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ResourcePageComponent } from './resource-page/resource-page.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { ProjectComponent } from './project/project.component';
+import { TestComponent } from './test/test.component';
 
 
 @NgModule({
@@ -62,7 +64,9 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     ResourcePageComponent,
     PageNotFoundComponent,
     SideNavComponent,
-    RegistrationComponent
+    RegistrationComponent,
+    ProjectComponent,
+    TestComponent
   ],
   imports: [
     BrowserModule,
