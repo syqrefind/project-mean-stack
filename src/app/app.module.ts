@@ -51,8 +51,8 @@ import {
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ResourcePageComponent } from './resource-page/resource-page.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { ProjectComponent } from './project/project.component';
-import { TestComponent } from './test/test.component';
+import { ProjectPageComponent } from './project-page/project-page.component';
+import { FormulaPageComponent } from './formula-page/formula-page.component';
 
 
 @NgModule({
@@ -65,8 +65,8 @@ import { TestComponent } from './test/test.component';
     PageNotFoundComponent,
     SideNavComponent,
     RegistrationComponent,
-    ProjectComponent,
-    TestComponent
+    ProjectPageComponent,
+    FormulaPageComponent
   ],
   imports: [
     BrowserModule,

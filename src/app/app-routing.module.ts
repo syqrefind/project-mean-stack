@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule, } from '@angular/router';
-import { TopBarComponent } from './top-bar/top-bar.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { ResourcePageComponent } from './resource-page/resource-page.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { LoginComponent } from './login/login.component';
+import { ProjectPageComponent } from './project-page/project-page.component';
+import { FormulaPageComponent } from './formula-page/formula-page.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent},
@@ -12,6 +13,8 @@ const routes: Routes = [
   { path: 'registration', component: RegistrationComponent},
   { path: 'resource', component: ResourcePageComponent},
   { path: 'resource/:id', redirectTo: '/resource', pathMatch: 'full'},
+  { path: 'project', component: ProjectPageComponent},
+  { path: 'formula', component: FormulaPageComponent},
   { path: '**', component: PageNotFoundComponent }];
 
 @NgModule({

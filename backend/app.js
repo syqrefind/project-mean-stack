@@ -11,7 +11,7 @@ const app = express();
 
 mongoose
   .connect(
-      "mongodb+srv://new-admin-0:8415syq_@my-dream-cluster-seo5i.mongodb.net/test?retryWrites=true",
+      "mongodb+srv://new-admin-0:8415syq_@my-dream-cluster-seo5i.mongodb.net/management-system?retryWrites=true",
       { useNewUrlParser: true }
   )
   .then(() => {
@@ -25,6 +25,10 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use("/images", express.static(path.join("images")));
 
+// app.use((req, res, next) => {
+//     console.log('received request: ' + req);
+//     next();
+// });
 app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader(

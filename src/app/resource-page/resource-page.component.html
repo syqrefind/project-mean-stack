@@ -24,8 +24,9 @@
     </tr>
   </thead>
   <tbody>
-    <!-- <tr **ngFor="let item of list | aysnc; let id = index"></tr> -->
-    <td>Procurement and Contracting Requirements</td><td>00000</td>
+    <tr *ngFor="let datum of data; let id = index;">
+      <td *ngFor="let col of columns">{{datum[col]}}</td>
+    </tr>
   </tbody>
 </table>
 

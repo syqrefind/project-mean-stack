@@ -8,8 +8,6 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class SideNavComponent implements OnInit {
 
-  currentPage = 'login';
-
   constructor(private activatedRoute: ActivatedRoute) { }
 
   events: string[] = [];

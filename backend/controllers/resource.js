@@ -1,12 +1,14 @@
-const jwt = require("jsonwebtoken");
+// const jwt = require("jsonwebtoken");
 const Resource = require("../models/resource");
 
 exports.createResource = (req, res, next) => {
     const resource = new Resource({
         title: req.body.title,
-        data: req.body.data// entries: Array<object> in POST Requst Body
-    })
+        data: req.body.data,
+    });
+    console.log(resource);
     resource.save().then(result => {
+        // console.log(result);
         res.status(201).json({
             message: "Resource created!",
             result: result
