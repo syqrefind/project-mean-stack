@@ -3,6 +3,7 @@ import { NgForm } from '@angular/forms';
 import { Subscription } from "rxjs";
 
 import { AuthService } from "../auth.service";
+import { LoginService } from '../services/login.service';
 
 @Component({
   selector: 'app-login',
@@ -13,21 +14,22 @@ export class LoginComponent implements OnInit, OnDestroy {
   isLoading = false;
   private authStatusSub: Subscription;
 
-  constructor(public authService: AuthService) {}
+  constructor(public authService: AuthService, private loginService: LoginService) {}
   
   @ViewChild('f') signupForm: NgForm;
-  username = '';
+  // username = 'test_user';
   password = '';
 
   onSubmit(f: NgForm) {
     console.log('Submitting!')
-    console.log(f)
-    console.log(f.value.userData)
     if (f.invalid) {
       return;
     }
     this.isLoading = true;
     this.authService.login(f.value.userData.username, f.value.userData.password);
+    this.loginService.username = f.value.userData.username;
+    // console.log(this.loginService.username);
+    this.loginService.changeUserName(f.value.userData.username);
   }
 
   ngOnInit() {

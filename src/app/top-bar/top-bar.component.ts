@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { LoginService } from '../services/login.service';
 
 @Component({
   selector: 'app-top-bar',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TopBarComponent implements OnInit {
 
+  constructor(public loginService: LoginService) { }
+
   popoverTitle = "Cost Manager Member since November-2015";
 
-  constructor() { }
+  // @Input() username: string;
+
+  costManager = this.loginService.username;
+  
 
   ngOnInit() {
   }
