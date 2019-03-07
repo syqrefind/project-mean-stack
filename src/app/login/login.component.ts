@@ -22,11 +22,12 @@ export class LoginComponent implements OnInit, OnDestroy {
   onSubmit(f: NgForm) {
     console.log('Submitting!')
     console.log(f)
+    console.log(f.value.userData)
     if (f.invalid) {
       return;
     }
     this.isLoading = true;
-    this.authService.login(f.value.email, f.value.password);
+    this.authService.login(f.value.userData.username, f.value.userData.password);
   }
 
   ngOnInit() {
