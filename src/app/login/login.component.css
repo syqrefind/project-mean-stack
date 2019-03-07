@@ -66,11 +66,11 @@ span {
     box-shadow:none !important;
 }
 
-.submit {
+.signup {
     text-align: left;
 }
 
-#submit-button {
+#signup-button {
     background-color: #EB5327;
     border: none;
     color: white;

@@ -14,7 +14,8 @@
       <br *ngIf="!password.valid && password.touched">
       <span class="help-block" *ngIf="!password.valid && password.touched">A password must be at least 8 characters long!</span>
       <br>
-      <button id='login-button' type='submit' [disabled]="!f.valid">Login</button>
+
+      <button id='login-button' type='submit'  *ngIf="!isLoading" [disabled]="!f.valid">Login</button>
       <br>
 
       <div class="custom-control custom-checkbox">
@@ -22,13 +23,14 @@
         <label class="custom-control-label" for="customCheck">Remember me</label>
       </div>
       <br><br><br>
-      <div class="submit">
-        <button id='submit-button' type='submit'>sign up</button>
-        <a [routerLink]="['/a']" routerLinkActive="router-link-active" [queryParams]="{msg: doomed}">
-          <span id="forgot">Forgot password?</span></a>
-      </div>
     </div>
   </form>
+
+  <div class="signup">
+    <button id='signup-button' type='submit' routerLink='/registration'>sign up</button>
+    <a [routerLink]="['/a']" routerLinkActive="router-link-active" [queryParams]="{msg: doomed}">
+      <span id="forgot">Forgot password?</span></a>
+  </div>
   
 </div>
 
