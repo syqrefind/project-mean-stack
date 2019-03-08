@@ -33,9 +33,9 @@
     
     <!-- <ng-template [ngIf]="!paginationService.pageEvent">
       <tr *ngFor="let datum of data | slice: 0:10; let id = index;">
-          {{id}}#&nbsp;&nbsp;&nbsp;&nbsp;
+          {{id}}#&nbsp;&nbsp;&nbsp;&nbsp; -->
         <td *ngFor="let col of columns">{{datum[col]}}</td>
-    </tr> -->
+    </tr>
 
     <!-- </ng-template><ng-template [ngIf]="paginationService.pageEvent">
       <tr *ngFor="let datum of data | slice: (paginationService.pageEvent.pageIndex - 1) * paginationService.pageEvent.pageSize: paginationService.pageEvent.pageIndex * paginationService.pageEvent.pageSize; let id = index;">

@@ -32,6 +32,7 @@ exports.readResource = (req, res, next) =>{
         }
 
         fetchedResource = resource;
+        
         return res.status(200).json({
             message: "Document found.",
             data: resource.data,
@@ -43,7 +44,7 @@ exports.readResource = (req, res, next) =>{
     });
 }
 
-exports.readResource = (req, res, next) =>{
+exports.readResourceViaGet = (req, res, next) =>{
     let start = parseInt(req.params.start);
     let end = parseInt(req.params.end);
     
@@ -67,9 +68,17 @@ exports.readResource = (req, res, next) =>{
         //     data: document.data,
         // });
         let data = document.data;
-        // for (let i = start; i < end; i++){
-             
-        // }
+        let selectedData = [];
+
+        for (let i = start; i < end; i++){
+            selectedData.push(data[i]);
+        }
+        return res.status(302).json({
+            message: "Array of Data found.",
+            data: document.data
+        });
+        
+
     }).catch(err => {
         return res.status(404).json({
             message: "Oops! Document lost in the void.",
