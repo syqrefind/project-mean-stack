@@ -5,6 +5,7 @@
     text-align: center;
     border:1px solid gray;
     margin-bottom: 4.4%;
+    padding: 0;
 }
 #search-keyword {
     width:17%;
