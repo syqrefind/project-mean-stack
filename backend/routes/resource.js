@@ -9,7 +9,9 @@ router.post("/createResource", ResourceController.createResource);
 // @Deprecated: Please dont't use this POST route to read
 router.post("/readResource", ResourceController.readResource);
 
-router.get("/readResource/:start-:end", ResourceController.readResource);
+// router.get("/readResource", ResourceController.readResourceViaGet);
+
+router.get("/readResourceViaGet/:start-:end", ResourceController.readResourceViaGet);
 
 // get - readProject
 // router.get("/readProject/:project:start-:end", ResourceController.readProject);

@@ -20,7 +20,7 @@ exports.createResource = (req, res, next) => {
     })
 }
 
-// Please dont't use this. Read with the GET method.
+// Please dont't use this after the GET handler is done.
 exports.readResource = (req, res, next) =>{
 
     let fetchedResource;
@@ -47,8 +47,9 @@ exports.readResource = (req, res, next) =>{
 exports.readResourceViaGet = (req, res, next) =>{
     let start = parseInt(req.params.start);
     let end = parseInt(req.params.end);
+    console.log(`start is ${start} & end is ${end}`);
     
-    if (start < 0 || start < end || end > 76){
+    if (start < 0 || start > end || end > 75){
         return res.status(400).json({
             message: "Bad request: requested indices are out of boundary!"
         });
@@ -75,7 +76,7 @@ exports.readResourceViaGet = (req, res, next) =>{
         }
         return res.status(302).json({
             message: "Array of Data found.",
-            data: document.data
+            data: selectedData
         });
         
 
