@@ -56,6 +56,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { ProjectPageComponent } from './project-page/project-page.component';
 import { FormulaPageComponent } from './formula-page/formula-page.component';
 import { PaginatorComponent } from './paginator/paginator.component';
+import { TemplatePageComponent } from './template-page/template-page.component';
 
 
 @NgModule({
@@ -70,7 +71,8 @@ import { PaginatorComponent } from './paginator/paginator.component';
     RegistrationComponent,
     ProjectPageComponent,
     FormulaPageComponent,
-    PaginatorComponent
+    PaginatorComponent,
+    TemplatePageComponent,
   ],
   imports: [
     BrowserModule,
