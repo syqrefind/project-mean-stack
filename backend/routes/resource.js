@@ -6,6 +6,16 @@ const router = express.Router();
 
 router.post("/createResource", ResourceController.createResource);
 
+// @Deprecated: Please dont't use this POST route to read
 router.post("/readResource", ResourceController.readResource);
+
+router.get("/readResource/:start-:end", ResourceController.readResource);
+
+// get - readProject
+// router.get("/readProject/:project:start-:end", ResourceController.readProject);
+
+// post - create or update resource data 
+
+// post - create or update project data
 
 module.exports = router;

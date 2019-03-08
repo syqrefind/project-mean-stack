@@ -24,22 +24,37 @@
     </tr>
   </thead>
   <tbody>
-    <!-- how to render certain number of elements -->
+    <tr *ngFor="let datum of data">
+    <!-- ########TOTALLY GAVE UP FRONTEND PAGINATION; MOVED TO BACKEDN PAGINATION -->
+
     <!-- <tr *ngFor="let datum of data  | slice: 0:10; let id = index;"> -->
-    <tr *ngFor="let datum of data; let id = index;">
-      <!-- <ng-template [ngIf]="id < 10">
+    <!-- <tr *ngFor="let datum of data  | slice: paginationService.getStartIndex():paginationService.getEndIndex(); let id = index;"> -->
+    <!-- <tr *ngFor="let datum of data | slice: paginationService.pageEvent.pageIndex: paginationService.pageEvent.pageSize; let id = index;"> -->
+    
+    <!-- <ng-template [ngIf]="!paginationService.pageEvent">
+      <tr *ngFor="let datum of data | slice: 0:10; let id = index;">
+          {{id}}#&nbsp;&nbsp;&nbsp;&nbsp;
         <td *ngFor="let col of columns">{{datum[col]}}</td>
-      </ng-template> -->
+    </tr> -->
+
+    <!-- </ng-template><ng-template [ngIf]="paginationService.pageEvent">
+      <tr *ngFor="let datum of data | slice: (paginationService.pageEvent.pageIndex - 1) * paginationService.pageEvent.pageSize: paginationService.pageEvent.pageIndex * paginationService.pageEvent.pageSize; let id = index;">
+          {{id}}#&nbsp;&nbsp;&nbsp;&nbsp;
         <td *ngFor="let col of columns">{{datum[col]}}</td>
-    </tr>
+    </tr> -->
+    <!-- </ng-template> -->
   </tbody>
 
 
 </table>
 
-<div *ngIf="pageEvent">
-    <h5>Page Change Event Properties (In Parent)</h5>
-    <div>Page index: {{pageEvent.pageIndex}}</div>
+<div *ngIf="paginationService.pageEvent">
+    <h5>Page Change Event Properties (In ResourcPageComponent)</h5>
+    <div>Page index: {{paginationService.pageEvent.pageIndex}}</div>
+    <div>Page Size: {{paginationService.pageEvent.pageSize}}</div>
   </div>
 <app-paginator></app-paginator>
 </div>
+      <!-- <ng-template [ngIf]="id < 10">
+        <td *ngFor="let col of columns">{{datum[col]}}</td>
+      </ng-template> -->
