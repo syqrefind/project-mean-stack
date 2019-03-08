@@ -15,12 +15,12 @@ export class ProjectPageComponent implements OnInit {
 
   TableOne:Array<any>;
    columns = ['cost_code', 'name'];
-  // TableOne=['cost_code', 'name'];
-
-  // Tab=[{"cost_code":"dasfd","name":"dsfds"},
-  // {"cost_code":"dasfd","name":"dsfds"}];
    Tab=[]
-  selectedAll: any;
+  // selectedAll: any;
+
+  masterSelected:boolean;
+  checklist:any;
+  checkedList:any;
 
 
   constructor(
@@ -28,14 +28,13 @@ export class ProjectPageComponent implements OnInit {
     ) {}
 
   ngOnInit() {
-    this.resourceService.readResource({title: 'project1'}).subscribe(
+    this.resourceService.readResource({title: 'project0'}).subscribe(
       response => {
         // console.log(response.data);
         this.TableOne = response.data;
-        console.log(this.TableOne);
-      }
-    );
-    }
+        // console.log(this.TableOne);
+      }  ) }
+
 
   readonly TableOneSelections = [];
   readonly TabSelections = [];
@@ -96,7 +95,27 @@ export class ProjectPageComponent implements OnInit {
   //   }
   // }
 
-
+  checkUncheckAll() {
+    for (var i = 0; i < this.checklist.length; i++) {
+      this.checklist[i].isSelected = this.masterSelected;
+    }
+    this.getCheckedItemList();
+  }
+  isAllSelected() {
+    this.masterSelected = this.checklist.every(function(item:any) {
+        return item.isSelected == true;
+      })
+    this.getCheckedItemList();
+  }
+ 
+  getCheckedItemList(){
+    this.checkedList = [];
+    for (var i = 0; i < this.checklist.length; i++) {
+      if(this.checklist[i].isSelected)
+      this.checkedList.push(this.checklist[i]);
+    }
+    this.checkedList = JSON.stringify(this.checkedList);
+  }
 
 }
 

@@ -31,9 +31,11 @@ export class ResourceService {
   readResource(): Observable<ResourceData> {
 
     // if (this.paginationService.pageEvent) {
+// tslint:disable-next-line: max-line-length
     //   return this.http.get<ResourceData>(BACKEND_URL + '/readResourceViaGet/' + this.paginationService.getStartIndex() + '-' + this.paginationService.getEndIndex());
     // }
 
+// tslint:disable-next-line: max-line-length
     return (this.paginationService.pageEvent ? this.http.get<ResourceData>(BACKEND_URL + '/readResourceViaGet/' + this.paginationService.getStartIndex() + '-' + this.paginationService.getEndIndex()) : this.http.get<ResourceData>(BACKEND_URL + '/readResourceViaGet/' + this.startIndex + '-' + this.endIndex));
 
 

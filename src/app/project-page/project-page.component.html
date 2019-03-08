@@ -1,137 +1,84 @@
 <div id='table' style="width:40%;display:inline-block">
-
-    <div id='header' style="width:100%;height:8%;background-color:rgb(114, 110, 110);">
-    
-      <p style="color:rgb(48, 47, 47); font-size:16px;display:inline-block;">Resource Catalog</p>
-
-
-      <a  (click)="moveAndOverwriteSelectedRecords(TableOne, Tab)" class="btn btn-warning btn-sm" style="float:right;margin:4px;"><span class="glyphicon glyphicon-th-list"></span>
-        <i class="fas fa-list"></i>
-      </a>
-      <!-- <a  (click)="addToAnotherTable(i)" class="btn btn-warning btn-sm" style="float:right;margin:4px;"><span class="glyphicon glyphicon-th-list"></span>
-        <i class="fas fa-list"></i>
-      </a> -->
-      <!-- <input type="checkbox" [(ngModel)]="selectedAll" (change)="selectAll();"/> -->
-  </div>  
   
-    <table style="color:rgb(88, 86, 86)">
-        <thead>
-          <tr>
-            <!-- <th><button (click)="thew">fdsf</button></th> -->
-            <th></th>
-            <th   style="text-align: center; height:30px;width:50%;background-color:rgb(213, 218, 216) " >RESOURCE NAME</th> 
-            <th   style="text-align: center; height:30px;width:50%;background-color:rgb(213, 218, 216)">RESOURCE CODE</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let datum of TableOne;">
+    <div id='header' style="width:100%;height:8%;background-color:rgb(114, 110, 110);">
 
-            <!-- <td *ngFor="let col of columns; let col_id = index" style="font-size:14px"> 
-              <input type="checkbox" (change)="onSelectionChanged($event, datum, TableOne)" *ngIf="col_id === 0">
+      <p style="color:rgb(48, 47, 47);font-size:16px;display:inline-block;left:28%;top:8%;">Resource Catalog</p>
 
-               <input *ngIf="col_id === 0" type='checkbox'>  
-               {{datum[col]}}
-            </td>  -->
-       <!-- <td *ngFor="let col of columns;" style="font-size:14px">  -->
-
-            <td>
-                <input type="checkbox" [(ngModel)]="datum.selected" (change)="onSelectionChanged($event, datum, TableOne)">
-            </td> 
-            <td>{{datum.cost_code}}</td>
-            <td> {{datum.name}}</td>
-
-          </tr>
-        </tbody>
-      </table>
-
-
-    <!-- <table>
+      <a  class="btn btn-warning btn-sm" style="float:right;margin:4px;" (click)="moveAndOverwriteSelectedRecords(TableOne, Tab)">        
+          <i class="fas fa-arrow-alt-circle-right"></i>  
+        </a>  
+      <div ngbDropdown class="d-inline-block" autoClose="outside" style="float:right">
+              <button class="btn btn-outline-primary" id="dropdownForm1" ngbDropdownToggle>    <i class="fas fa-list-ul"></i>     </button>
+              <div ngbDropdownMenu aria-labelledby="dropdownForm1">
+                  <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="dropdownCheck"  [(ngModel)]="masterSelected" (change)="checkUncheckAll();" >
+                    <label class="form-check-label" for="dropdownCheck">
+                      Select all
+                    </label>
+                  </div>
+                  <div class="form-check">
+                  <input type="checkbox" class="form-check-input" id="dropdownCheck">
+                  <label class="form-check-label" for="dropdownCheck">
+                        Clear selection
+                  </label>
+                  </div>
+              </div>
+            </div>
+    </div>
+        
+<table style="color:rgb(88, 86, 86)">
       <thead>
         <tr>
-          <th>RESOURCE NAME</th> 
-          <th>RESOURCE CODE</th>
+          <th   style="background-color:rgb(213, 218, 216);border:solid 1px rgb(192, 189, 189); "></th>
+          <th   style="border:solid 1px rgb(192, 189, 189);text-align: center; height:30px;width:50%;background-color:rgb(213, 218, 216) " >RESOURCE NAME</th> 
+          <th   style="border:solid 1px rgb(192, 189, 189);text-align: center; height:30px;width:50%;background-color:rgb(213, 218, 216)">RESOURCE CODE</th>
         </tr>
-      </thead>
-      <tbody>
-        <tr **ngFor="let item of list | aysnc; let id = index"></tr>
-        <td>Procurement and Contracting Requirements</td><td>00000</td>
-      </tbody>
-    </table> 
-    -->
-     
-  </div>
-
-
-
-    <div id='table' style="width:40%;display:inline-block">
-  
-      <div id='header' style="width:100%;height:8%;background-color:rgb(114, 110, 110);">
-      
-      
-        <p style="color:rgb(48, 47, 47);font-size:16px;display:inline-block;left:28%;top:8%;">Resource Catalog</p>
-          <a  class="btn btn-warning btn-sm" style="float:right;margin:4px;"><span class="glyphicon glyphicon-th-list"></span>
-        <i class="fas fa-trash-alt"></i>
-      </a> 
-      
-      </div>
-      
-      <!-- <table>
-        <thead>
-          <tr>
-            <th>RESOURCE NAME</th> 
-            <th>RESOURCE CODE</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr **ngFor="let item of list | aysnc; let id = index"></tr>
-          <td>Procurement and Contracting Requirements</td><td>00000</td>
-        </tbody>
-      </table> -->
- 
-        <!-- <button (click)="moveSelectedRecords(Tab, TableOne)">Move Up</button>
-        <button (click)="moveAndOverwriteSelectedRecords(Tab, TableOne)">Move Up (overwrite)</button>
-        <button (click)="getSelectedRecords(Tab)">Get selected records</button> -->
-        <!-- <table>
-            <thead>
-              <tr>
-                <th>RESOURCE NAME</th> 
-                <th>RESOURCE CODE</th>
-              </tr>
             </thead>
             <tbody>
-              <tr *ngFor="let datum of data; let id = index;">
-                <td *ngFor="let col of columns">{{datum[col]}}</td>
+              <tr *ngFor="let datum of TableOne; ">
+                <td>
+                    <input type="checkbox" [(ngModel)]="datum.isSelected"   (change)="onSelectionChanged($event, datum, TableOne)">
+                </td> 
+               <td>{{datum.cost_code}}</td>
+                <td> {{datum.name}}</td>     
               </tr>
             </tbody>
-          </table> -->
-       
-          <table style="color:rgb(88, 86, 86)">
-              <thead>
-                <tr>
-                    <th>      </th>
-                  <th   style="text-align: center; height:30px;width:50%;background-color:rgb(213, 218, 216) " >RESOURCE NAME</th> 
-                  <th   style="text-align: center; height:30px;width:50%;background-color:rgb(213, 218, 216)">RESOURCE CODE</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr *ngFor="let datum of Tab; ">
-<!--       
-                  <td *ngFor="let col of columns; let col_id = index" style="font-size:14px let col_id =index"> 
-                    <input type="checkbox" (change)="onSelectionChanged($event, datum, Tab)" *ngIf="col_id === 0">
-      
-                     {{datum[col]}}
-                  </td>  
-             <td *ngFor="let col of columns;" style="font-size:14px">  -->
-      
-                   <td>
-                      <input type="checkbox"  [(ngModel)]="datum.selected" (change)="onSelectionChanged($event, datum, Tab)">
-                  </td> 
-                 <td>{{datum.cost_code}}</td>
-                  <td> {{datum.name}}</td>
-      
-                </tr>
-              </tbody>
-            </table>
-      
+          </table>
+    
+
+    </div>
+
+
+<div id='table' style="width:40%;display:inline-block">
   
-      </div>
+    <div id='header' style="width:100%;height:8%;background-color:rgb(114, 110, 110);">
+
+      <p style="color:rgb(48, 47, 47);font-size:16px;display:inline-block;left:28%;top:8%;">Resource Catalog</p>
+        <a  class="btn btn-warning btn-sm" style="float:right;margin:4px;"><span class="glyphicon glyphicon-th-list"></span>
+      <i class="fas fa-trash-alt"></i>
+    </a> 
+    </div>
+    
+
+     
+<table style="color:rgb(88, 86, 86)">
+      <thead>
+        <tr>
+          <th style="background-color:rgb(213, 218, 216);border:solid 1px rgb(192, 189, 189); "></th>
+          <th   style="border:solid 1px rgb(192, 189, 189);text-align: center; height:30px;width:50%;background-color:rgb(213, 218, 216) " >RESOURCE NAME</th> 
+          <th   style="border:solid 1px rgb(192, 189, 189);text-align: center; height:30px;width:50%;background-color:rgb(213, 218, 216)">RESOURCE CODE</th>
+        </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let datum of Tab; ">
+                <td>
+                    <input type="checkbox"  (change)="onSelectionChanged($event, datum, Tab)">
+                </td> 
+               <td>{{datum.cost_code}}</td>
+                <td> {{datum.name}}</td>     
+              </tr>
+            </tbody>
+          </table>
+    
+
+    </div>
