@@ -66,7 +66,7 @@ import { FormulaPageComponent } from './formula-page/formula-page.component';
     SideNavComponent,
     RegistrationComponent,
     ProjectPageComponent,
-    FormulaPageComponent
+    FormulaPageComponent,
   ],
   imports: [
     BrowserModule,
