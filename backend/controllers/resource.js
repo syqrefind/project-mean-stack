@@ -74,7 +74,7 @@ exports.readResourceViaGet = (req, res, next) =>{
         for (let i = start; i < end; i++){
             selectedData.push(data[i]);
         }
-        return res.status(302).json({
+        return res.status(200).json({
             message: "Array of Data found.",
             data: selectedData
         });

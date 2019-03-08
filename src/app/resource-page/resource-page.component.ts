@@ -26,7 +26,8 @@ export class ResourcePageComponent implements OnInit {
   constructor(public resourceService: ResourceService, public paginationService: PaginationService) {}
 
   ngOnInit() {
-    this.resourceService.readResource({title: 'project0'}).subscribe(
+    // subscribe to paginator change and in result: subscribe to response
+    this.resourceService.readResource().subscribe(
       response => {
         this.data = response.data;
       }

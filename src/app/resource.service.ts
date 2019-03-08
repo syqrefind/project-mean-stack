@@ -3,6 +3,7 @@ import { HttpHeaders, HttpClient, HttpErrorResponse } from '@angular/common/http
 import { Router } from '@angular/router';
 import { Subject, Observable, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
+import { PaginationService } from './pagination.service';
 // import { OnInit } from '@angular/core';
 
 import { ResourceData } from './resource-data.model';
@@ -22,15 +23,20 @@ const httpOptions = {
 })
 export class ResourceService {
   private resourceStatusListener = new Subject<boolean>();
+  public startIndex = 0;
+  public endIndex = 15;
 
-  constructor(private http: HttpClient, private router: Router) { }
+  constructor(private http: HttpClient, private router: Router, public paginationService: PaginationService) { }
 
-  readResource(resourceData: ResourceData): Observable<ResourceData> {
+  readResource(): Observable<ResourceData> {
 
-    console.log('in service, triggered!!!!');
+    // if (this.paginationService.pageEvent) {
+    //   return this.http.get<ResourceData>(BACKEND_URL + '/readResourceViaGet/' + this.paginationService.getStartIndex() + '-' + this.paginationService.getEndIndex());
+    // }
 
-    return this.http.post<ResourceData>(BACKEND_URL + '/readResource/', resourceData);
-    // ***********NEED ERROR HANDLING HERE***************
+    return (this.paginationService.pageEvent ? this.http.get<ResourceData>(BACKEND_URL + '/readResourceViaGet/' + this.paginationService.getStartIndex() + '-' + this.paginationService.getEndIndex()) : this.http.get<ResourceData>(BACKEND_URL + '/readResourceViaGet/' + this.startIndex + '-' + this.endIndex));
+
+
   }
 
 }
