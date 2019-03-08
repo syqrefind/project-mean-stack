@@ -2,6 +2,8 @@ import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { ResourceService } from '../resource.service';
 import { PageEvent } from '@angular/material';
 import { PaginationService } from '../pagination.service';
+import { AsyncPipe } from '@angular/common';
+
 @Component({
   selector: 'app-resource-page',
   templateUrl: './resource-page.component.html',
