@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ResourceService } from '../resource.service';
 import { AsyncPipe } from '@angular/common';
+
 @Component({
   selector: 'app-resource-page',
   templateUrl: './resource-page.component.html',
