@@ -7,7 +7,7 @@ export class LoginService {
 
   constructor() { }
 
-  username: string = "test_manager";
+  username: string;
 
   changeUserName(str) {
     this.username = str;

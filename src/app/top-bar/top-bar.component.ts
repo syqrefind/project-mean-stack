@@ -14,7 +14,7 @@ export class TopBarComponent implements OnInit {
 
   // @Input() username: string;
 
-  costManager = this.loginService.username;
+  // costManager = this.loginService.username;
   
 
   ngOnInit() {
