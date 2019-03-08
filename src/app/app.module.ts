@@ -10,7 +10,9 @@ import { LoginComponent } from './login/login.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { SideNavComponent } from './side-nav/side-nav.component';
 
-import { HttpClientModule } from '@angular/common/http';
+import { AuthInterceptor } from "./auth-interceptor";
+
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 
 
@@ -125,7 +127,10 @@ import { PaginatorComponent } from './paginator/paginator.component';
     NgbModule,
     HttpClientModule,
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+    // { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
