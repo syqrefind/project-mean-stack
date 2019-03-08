@@ -10,7 +10,7 @@ import { LoginComponent } from './login/login.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { SideNavComponent } from './side-nav/side-nav.component';
 
-import { AuthInterceptor } from "./auth-interceptor";
+import { AuthInterceptor } from './auth-interceptor';
 
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
