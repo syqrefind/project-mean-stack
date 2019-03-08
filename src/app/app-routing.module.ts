@@ -7,6 +7,7 @@ import { LoginComponent } from './login/login.component';
 import { ProjectPageComponent } from './project-page/project-page.component';
 import { FormulaPageComponent } from './formula-page/formula-page.component';
 import { AuthGuard } from './auth.guard';
+import { TemplatePageComponent } from './template-page/template-page.component';
 // import { CanActivate } from '@angular/router';
 
 const routes: Routes = [
@@ -17,6 +18,7 @@ const routes: Routes = [
   { path: 'resource/:id', redirectTo: '/resource', pathMatch: 'full'},
   { path: 'project', component: ProjectPageComponent, canActivate: [AuthGuard]},
   { path: 'formula', component: FormulaPageComponent, canActivate: [AuthGuard]},
+  { path: 'template', component: TemplatePageComponent},
   { path: '**', component: PageNotFoundComponent }];
 
 @NgModule({

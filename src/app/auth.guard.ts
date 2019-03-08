@@ -17,10 +17,12 @@ import {
       route: ActivatedRouteSnapshot,
       state: RouterStateSnapshot
     ): boolean | Observable<boolean> | Promise<boolean> {
+      console.log(typeof localStorage.getItem('token'))
       const isAuth = this.authService.getIsAuth();
-      if (!isAuth) {
+    if (!isAuth) {
         this.router.navigate(['/login']);
       }
+  
       return isAuth;
     }
   }
