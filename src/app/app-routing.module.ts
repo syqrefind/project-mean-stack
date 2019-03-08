@@ -7,7 +7,7 @@ import { LoginComponent } from './login/login.component';
 import { ProjectPageComponent } from './project-page/project-page.component';
 import { FormulaPageComponent } from './formula-page/formula-page.component';
 import { AuthGuard } from './auth.guard';
-import { CanActivate } from '@angular/router';
+// import { CanActivate } from '@angular/router';
 
 const routes: Routes = [
   { path: '', component: LoginComponent},
