@@ -55,6 +55,7 @@ import { ResourcePageComponent } from './resource-page/resource-page.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { ProjectPageComponent } from './project-page/project-page.component';
 import { FormulaPageComponent } from './formula-page/formula-page.component';
+import { TemplatePageComponent } from './template-page/template-page.component';
 
 
 @NgModule({
@@ -68,7 +69,8 @@ import { FormulaPageComponent } from './formula-page/formula-page.component';
     SideNavComponent,
     RegistrationComponent,
     ProjectPageComponent,
-    FormulaPageComponent
+    FormulaPageComponent,
+    TemplatePageComponent
   ],
   imports: [
     BrowserModule,
