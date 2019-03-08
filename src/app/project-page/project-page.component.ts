@@ -28,7 +28,7 @@ export class ProjectPageComponent implements OnInit {
     ) {}
 
   ngOnInit() {
-    this.resourceService.readResource({title: 'project0'}).subscribe(
+    this.resourceService.readResource().subscribe(
       response => {
         // console.log(response.data);
         this.TableOne = response.data;
