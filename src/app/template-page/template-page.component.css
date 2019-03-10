@@ -81,3 +81,19 @@ input[type='text'] {
     float: right;
     margin-top: 15px;
 }
+
+.save {
+    max-width: 80%;
+    margin: auto;
+    margin-top: 30px;
+}
+
+#save-button {
+    background-color: #EB5327;
+    border: none;
+    color: white;
+    height: 38px;
+    float: right;
+    padding-left: 50px;
+    padding-right: 50px;
+}
