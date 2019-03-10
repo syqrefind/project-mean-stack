@@ -1,4 +1,28 @@
-thead tr {
-    /* font-family: 'Roboto'; */
+.main-container {
+    max-width: 80%;
+    margin: auto;
+    margin-top: 130px;
+    /* margin-left: 130px; */
+}
+
+.normal {
     font-weight: normal;
+}
+
+.custom-control-input:focus ~ .custom-control-label::before {
+    box-shadow:none !important;
+}
+
+.simple-checkbox {
+    opacity: 0.5;
+    width: 18px;
+    height: 18px;
+}
+
+.project-scope {
+    height: 50px;
+    background-color: #ededed;
+    font-weight: bold;
+    padding-left: 15px;
+    line-height: 50px;
 }
