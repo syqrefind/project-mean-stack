@@ -1,7 +1,7 @@
 <div class="container-fluid main-container">
   <div class="row">
-    <div class="col-sm-4">
-      <div class="project-scope">
+    <div class="col-sm-4 left-side">
+      <div class="fields-heading">
         Project Scope Fields
       </div>
 
@@ -39,7 +39,7 @@
               </td>
             </tr>
             <tr>
-              <td>item-id</td>
+              <td>item_id</td>
               <td>
                 <div class="custom-control custom-checkbox">
                   <input type="checkbox" class="custom-control-input" id="customCheck4">
@@ -50,8 +50,52 @@
           </tbody>
         </table>
 
-    </div>
-  </div>
+    </div> <!-- class="col-sm-4" -->
+
+    <div class="col-sm-8 container-fluid">
+      <div class="fields-heading">
+        Quantity Survey Fields
+      </div>
+      <div class="row survey-field">
+        <div class="col-sm-4 cell">
+          Field <br>
+          <input type='text' #username="ngModel" ngModel name='username' id="username" required email />
+        </div>
+        <div class="col-sm-3 cell">
+          Type <br>
+          <select class="custom-select">
+            <option value="1">Number</option>
+            <option value="2">Text</option>
+            <option value="3">Formula</option>
+          </select>
+        </div>
+        <div class="col-sm-4 cell">
+          
+        </div>
+        <div class="col-sm-1 cell">
+          <!-- <i class="fa fa-trash" aria-hidden="true"></i> -->
+          <!-- <i class="material-icons">delete_outline</i> -->
+          <button type="button" class="btn btn-success btn-sm delete-button">
+            <mdb-icon fas icon="trash-alt"></mdb-icon>
+          </button>
+          
+        </div>
+      </div> <!-- class="row survey-field" -->
+
+      <div class="add-field">
+        <span>Add Field</span>&nbsp;
+        <button type="button" class="btn btn-success btn-sm plus-button">
+        <i class="fas fa-plus"></i>
+        </button>
+      </div>
+
+      <!-- <button type="button" class="btn btn-success btn-sm delete-button">
+        <mdb-icon far icon="plus-square" class="plus-square"></mdb-icon>
+      </button> -->
+
+    </div> <!-- class="col-sm-8 container-fluid" -->
+  </div> <!-- class="row" -->
 </div>
 
 <!-- id="customCheck" -->
+<!-- style="width:30px;height:30px;float:right;margin-top:5px;margin-bottom: 4px; " -->

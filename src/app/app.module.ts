@@ -13,7 +13,7 @@ import { SideNavComponent } from './side-nav/side-nav.component';
 import { AuthInterceptor } from './auth-interceptor';
 
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
 
 
 
@@ -128,6 +128,7 @@ import { TemplatePageComponent } from './template-page/template-page.component';
     MatTreeModule,
     NgbModule,
     HttpClientModule,
+    MDBBootstrapModule.forRoot()
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },

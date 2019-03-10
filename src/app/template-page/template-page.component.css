@@ -2,7 +2,11 @@
     max-width: 80%;
     margin: auto;
     margin-top: 130px;
-    /* margin-left: 130px; */
+    border: 1px solid black;
+}
+
+.left-side {
+    border-right: 1px solid black;
 }
 
 .normal {
@@ -19,10 +23,61 @@
     height: 18px;
 }
 
-.project-scope {
+.fields-heading {
     height: 50px;
     background-color: #ededed;
     font-weight: bold;
     padding-left: 15px;
     line-height: 50px;
+}
+
+.delete-button, .plus-button {
+    background-color: #eb5327;
+    width: 30px;
+    height: 30px;
+    border: none;
+    /* margin-top: 10px; */
+}
+
+.delete-button:focus, .plus-button:focus, .custom-select:focus {
+    box-shadow:none !important;
+}
+
+.btn.btn-success:active {
+    background-color: #eb5327;
+}
+
+.row.survey-field {
+    /* height: 50px; */
+    background-color: #ededed;
+    /* line-height: 50px; */
+    margin: auto;
+    margin-top: 15px;
+}
+
+.cell {
+    border-right: 1px #dee2e6 solid;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+input[type='text'] {
+    width: 90%;
+}
+
+.custom-select {
+    height: 30px;
+    line-height: 13px;
+    background-color: inherit;
+    width: 80%;
+}
+
+.plus-square {
+    width: 30px;
+    height: 30px;
+}
+
+.add-field {
+    float: right;
+    margin-top: 15px;
 }
