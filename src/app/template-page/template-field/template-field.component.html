@@ -1,11 +1,11 @@
 <div class="row survey-field">
   <div class="col-sm-4 cell">
     Field <br>
-    <input type='text' #fieldname="ngModel" ngModel name='fieldname' id="fieldname" />
+    <input type='text' #fieldname="ngModel" [(ngModel)]="fieldName" name='fieldname' id="fieldname" />
   </div>
   <div class="col-sm-3 cell">
     Type <br>
-    <select class="custom-select" (change)="onSelect($event.target.value)" [(ngModel)]="selectedType.id">
+    <select class="custom-select" (change)="onSelect($event.target.value)">
       <option *ngFor="let type of types" value={{type.id}}>{{type.name}}</option>
     </select>
 
@@ -28,9 +28,6 @@
 
   </div>
 </div> <!-- class="row survey-field" -->
+<!-- {{fieldName}} -->
 
-<ng-template #notShow>
-  <p>
-    
-  </p>
-</ng-template>
+<!-- [(ngModel)]="selectedType.id" -->

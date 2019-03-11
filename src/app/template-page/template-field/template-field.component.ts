@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output } from '@angular/core';
 import { Type } from './type';
+import { debugOutputAstAsTypeScript } from '@angular/compiler';
 
 @Component({
   selector: 'app-template-field',
@@ -15,6 +16,8 @@ export class TemplateFieldComponent implements OnInit {
     new Type(3, 'Formula')
   ]
 
+  fieldName: string = "";
+
   selectedTypeId: number;
 
   constructor() { }
@@ -23,8 +26,16 @@ export class TemplateFieldComponent implements OnInit {
   } 
 
   onSelect(typeId) {
-    this.selectedTypeId = typeId;
-    console.log(this.selectedType.id)
+    // console.log(typeId);
+    // this.selectedTypeId = typeId;
+    // console.log(this.selectedTypeId)
+    this.types.forEach(el => {
+      if(el.id == typeId) {
+        console.log(el);
+        this.selectedType = el
+      }
+    })
+    console.log(this.selectedType.id, this.selectedType.name)
   }
 
 }
