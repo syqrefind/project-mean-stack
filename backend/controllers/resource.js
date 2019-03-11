@@ -1,7 +1,7 @@
 // const jwt = require("jsonwebtoken");
 const Resource = require("../models/resource");
 
-// WORKING
+// 
 exports.createObject = (req, res, next) => {
     // Body: title, new_object
     let fetchedDocument;
@@ -35,7 +35,7 @@ exports.createObject = (req, res, next) => {
     });
 };
 
-// WORKINGk
+// WORKING
 exports.createResource = (req, res, next) => {
     // Body: title, data, new_object 
     const resource = new Resource({
@@ -55,6 +55,50 @@ exports.createResource = (req, res, next) => {
         })
     })
 };
+
+
+// :title.:start-:end
+exports.readResource= (req, res, next) =>{
+    let start = parseInt(req.params.start);
+    let end = parseInt(req.params.end);
+
+    console.log(`title is ${req.params.title} start is ${start} & end is ${end}`);
+    
+    if (start < 0 || start > end || end > 75){
+        return res.status(400).json({
+            message: "Bad request: requested indices are out of boundary!"
+        });
+    }
+
+    let fetchedDocument;
+    Resource.findOne({title: req.params.title}).then(document => {
+        if (!document){
+            return res.status(404).json({
+                message: "Could not find the document!!!",
+            });
+        }
+
+        fetchedDocument = document;
+        
+        let data = fetchedDocument.data;
+        let selectedData = [];
+
+        for (let i = start; i < end; i++){
+            selectedData.push(data[i]);
+        }
+        return res.status(200).json({
+            message: "Array of Data found.",
+            data: selectedData
+        });
+        
+
+    }).catch(err => {
+        return res.status(404).json({
+            message: "Oops! Document lost in the void.",
+        })
+    });
+};
+
 
 // WORKING
 exports.readResourceViaGet = (req, res, next) =>{
@@ -146,6 +190,10 @@ exports.deleteResource = (req, res, next) =>{
         }
 
         fetchedDocument = document;
+        console.log(fetchedDocument.data[20]);
+
+        // console.log(fetchedDocument.data[index]);
+
         if(!document.data[index]){
             return res.status(404).json({
                 message: "Could not find the object!",

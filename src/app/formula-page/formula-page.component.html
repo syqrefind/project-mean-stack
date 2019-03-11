@@ -15,9 +15,13 @@
 </tr>
 </thead>
 <tbody>
-<tr *ngFor="let datum of data">
+<!-- <tr *ngFor="let datum of data">
 <td *ngFor="let col of columns">{{datum[col]}}</td>
-</tr>
+</tr> -->
+<tr *ngFor="let datum of data">
+    <td>{{datum.cost_code}}</td>
+    <td> {{datum.name}}</td>     
+    </tr>
 </tbody>
 </table>
 <app-paginator (eventChanged)="eventChangedHandler($event)"></app-paginator>

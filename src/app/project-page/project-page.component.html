@@ -51,8 +51,9 @@
          <td>
          <input type="checkbox"  [(ngModel)]="datum.selected" (change)="onSelectionChanged($event, datum, TableOne)">
          </td> 
-         <td>{{datum.cost_code}}</td>
-         <td> {{datum.name}}</td>     
+         <!-- <td>{{datum.cost_code}}</td>
+         <td> {{datum.name}}</td>      -->
+         <td *ngFor="let col of columns">{{datum[col]}}</td>
          </tr>
          </tbody>
         </table>
