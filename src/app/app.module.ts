@@ -9,6 +9,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginComponent } from './login/login.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { SideNavComponent } from './side-nav/side-nav.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 import { AuthInterceptor } from './auth-interceptor';
 
@@ -128,6 +129,8 @@ import { TemplatePageComponent } from './template-page/template-page.component';
     MatTreeModule,
     NgbModule,
     HttpClientModule,
+    NgxPaginationModule
+
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },

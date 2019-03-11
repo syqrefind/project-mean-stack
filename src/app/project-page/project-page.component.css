@@ -1,7 +1,7 @@
 #table {
     margin-left: 3.6%;
     margin-right: 3.3%;
-    margin-top: 5%;
+    margin-top: 8%;
     /* text-align: center; */
     border:1px solid gray;
     margin-bottom: 4.4%;
@@ -59,8 +59,41 @@ button:focus{
     border-color: #e07604 #e07604 #e07604;
 }
 #dropdownForm1{
+    color: #7c3f3f;
+    background-color: #e07604;
+    background-image: linear-gradient(to bottom, #e07604, #e07604);
+    border-color: #e07604 #e07604 #e07604;
+}
+
+tr{
+    height: 40px;
+}
+#twty:hover{
+    font-size: 17px;
+}
+#thty:hover{
+    font-size: 17px;
+}
+#headP{
+    position: relative;left: 50%;margin:11px;
+}
+#headTP{
+    position: relative;left: 70%;margin:11px;
+}
+#selectall{
+    padding:3px;
+}
+#tranbutn{
+    position: relative;top:3px;
+}
+#selepro{
+    margin-top: 4%
+}
+#selebtn{
     color: #ffffff;
     background-color: #e07604;
     background-image: linear-gradient(to bottom, #e07604, #e07604);
     border-color: #e07604 #e07604 #e07604;
+    float:right;
+    margin:5px;
 }

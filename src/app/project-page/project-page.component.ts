@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ResourceService } from '../resource.service';
-
+import { ResourceService } from '../project.service';
 
 
 @Component({
@@ -13,112 +12,158 @@ import { ResourceService } from '../resource.service';
 export class ProjectPageComponent implements OnInit {
 
 
-  TableOne:Array<any>;
+   TableOne:Array<any>;
    columns = ['cost_code', 'name'];
    Tab=[]
-  // selectedAll: any;
+   Tabthird=[]
+   pager: any = {};
+   pagedItems: any[];
+   selectedAll: any;
 
-  masterSelected:boolean;
-  checklist:any;
-  checkedList:any;
-
-
-  constructor(
-    public resourceService: ResourceService
-    ) {}
+  constructor(public resourceService: ResourceService) {}
 
   ngOnInit() {
-    this.resourceService.readResource().subscribe(
-      response => {
-        // console.log(response.data);
-        this.TableOne = response.data;
-        // console.log(this.TableOne);
-      }  ) }
+        this.resourceService.readResource({title:'project0'}).subscribe(
+          response => {
+
+            this.TableOne = response.data;
+            this.setPage(1);
+
+          }  ) }
 
 
-  readonly TableOneSelections = [];
-  readonly TabSelections = [];
+          readonly TableOneSelections = [];
+          readonly TabSelections = [];
+          readonly TabthirdSelections = [];
 
-  moveSelectedRecords(fromTable: any[], toTable: any[]) {
-    const selections = fromTable === this.TableOne ? this.TableOneSelections : this.TabSelections;
-    selections.forEach(selectedRecord => {
-      const removedRecordIndex = fromTable.findIndex(record => record === selectedRecord);
-      const removedRecord = fromTable.splice(removedRecordIndex, 1)[0];
-      toTable.push(removedRecord);
-    });
-    selections.length = 0;
-  }
+
+
+  Delete(fromTable: any[], toTable: any[]) {
+        const selections = fromTable === this.Tab ? this.TabSelections : this.TabthirdSelections;
+        selections.forEach(selectedRecord => {
+          const removedRecordIndex = fromTable.findIndex(record => record === selectedRecord);
+          const removedRecord = fromTable.splice(removedRecordIndex, 1)[0];
+          const indexInSecondTable = toTable.findIndex(record => record.cost_code === removedRecord.cost_code);
+          indexInSecondTable !== 0
+            ? toTable[indexInSecondTable] = removedRecord
+            : toTable.push(removedRecord)
+        });
+        selections.length = 0;
+      }
 
   moveAndOverwriteSelectedRecords(fromTable: any[], toTable: any[]) {
-    const selections = fromTable === this.TableOne ? this.TableOneSelections : this.TabSelections;
-    selections.forEach(selectedRecord => {
-      const removedRecordIndex = fromTable.findIndex(record => record === selectedRecord);
-      const removedRecord = fromTable.splice(removedRecordIndex, 1)[0];
-      const indexInSecondTable = toTable.findIndex(record => record.cost_code === removedRecord.cost_code);
-      indexInSecondTable !== -1
-        ? toTable[indexInSecondTable] = removedRecord
-        : toTable.push(removedRecord)
-    });
-    selections.length = 0;
-  }
+        const selections = fromTable === this.TableOne ? this.TableOneSelections : this.TabSelections;
+        selections.forEach(selectedRecord => {
+          const removedRecordIndex = fromTable.findIndex(record => record === selectedRecord);
+          const removedRecord = fromTable.splice(removedRecordIndex, 1)[0];
+          const indexInSecondTable = toTable.findIndex(record => record.cost_code === removedRecord.cost_code);
+          indexInSecondTable !== -1
+            ? toTable[indexInSecondTable] = removedRecord
+            : toTable.push(removedRecord)
+        });
+        selections.length = 0;
+      }
+
+  // moveTothird(fromTable: any[], toTable: any[]) {
+  //   const selections = fromTable === this.Tab ? this.TabSelections : this.TabthirdSelections;
+  //   selections.forEach(selectedRecord => {
+  //     const removedRecordIndex = fromTable.findIndex(record => record === selectedRecord);
+  //     const removedRecord = fromTable.splice(removedRecordIndex, 1)[0];
+  //     const indexInSecondTable = toTable.findIndex(record => record.cost_code === removedRecord.cost_code);
+  //     indexInSecondTable !== -1
+  //       ? toTable[indexInSecondTable] = removedRecord
+  //       : toTable.push(removedRecord)
+  //   });
+  //   selections.length = 0;
+  // }
 
   getSelectedRecords(fromTable: any[]) {
-    const selections = fromTable === this.TableOne ? this.TableOneSelections : this.TabSelections;
-    console.log(selections)
-  }
+        const selections = fromTable === this.TableOne ? this.TableOneSelections : this.TabSelections;
+        console.log(selections)
+      }
 
   onSelectionChanged(event, record, table) {
-    const selections = table === this.TableOne ? this.TableOneSelections : this.TabSelections;
-    event.target.checked
-      ? selections.push(record)
-      : selections.splice(selections.findIndex(selection => selection.cost_code === record.cost_code), 1)
-  }
+        const selections = table === this.TableOne ? this.TableOneSelections : this.TabSelections;
+        event.target.checked
+          ? selections.push(record)
+          : selections.splice(selections.findIndex(selection => selection.cost_code === record.cost_code), 1)
+        }
 
-  // selectAll() {
-  //   for (var i = 0; i < this.TableOne.length; i++) {
-  //     this.TableOne[i].selected = this.selectedAll;
-  //   }
-  // }
-  // checkIfAllSelected() {
-  //   this.selectedAll = this.TableOne.every(function(item:any) {
-  //       return item.selected == true;
-  //     })
-  // }
+setPage(page: number) {
+        this.pager = this.resourceService.getPager(this.TableOne.length, page);
 
-  // addToAnotherTable(ind) {
-  //   var index = this.Tab.indexOf(ind);
-  //   if (index > -1) {
-  //     this.Tab.splice(index, 1);
-  //   }
-  //   else{
-  //     this.Tab.push(ind);
-  //   }
-  // }
+        this.pagedItems = this.TableOne.slice(this.pager.startIndex, this.pager.endIndex +1);
+ }
 
-  checkUncheckAll() {
-    for (var i = 0; i < this.checklist.length; i++) {
-      this.checklist[i].isSelected = this.masterSelected;
-    }
-    this.getCheckedItemList();
-  }
-  isAllSelected() {
-    this.masterSelected = this.checklist.every(function(item:any) {
-        return item.isSelected == true;
-      })
-    this.getCheckedItemList();
-  }
- 
-  getCheckedItemList(){
-    this.checkedList = [];
-    for (var i = 0; i < this.checklist.length; i++) {
-      if(this.checklist[i].isSelected)
-      this.checkedList.push(this.checklist[i]);
-    }
-    this.checkedList = JSON.stringify(this.checkedList);
-  }
+getpagertwty(page: number) {
+      this.pager = this.resourceService.getPagertwty(this.TableOne.length, page);
 
+      this.pagedItems = this.TableOne.slice(this.pager.startIndex, this.pager.endIndex +1);
 }
 
+getpagerthid(page: number) {
+      this.pager = this.resourceService.getPagerthid(this.TableOne.length, page);
+
+      this.pagedItems = this.TableOne.slice(this.pager.startIndex, this.pager.endIndex +1);
+}
+
+projecttwo() {
+  this.resourceService.readResource({title:'project1'}).subscribe(
+    response => {
+
+      this.TableOne = response.data;
+      console.log(this.TableOne)
+      this.setPage(1);
+
+    }  ) }
+    
+// projectone() {
+//   this.resourceService.readResource({title:'project0'}).subscribe(
+//         response => {
+    
+//           this.TableOne = response.data;
+//           console.log(this.TableOne)
+//           this.setPage(1);
+    
+//         }  ) }
+
+selectAll() {
+          for (var i = 0; i < this.TableOne.length; i++) {
+            this.TableOne[i].selected = this.selectedAll;
+          }
+        }
+
+checkIfAllSelected() {
+          this.selectedAll = this.TableOne.every(function(item:any) {
+              return item.selected == true;
+            })
+        }
+
+        moveten(fromTable: any[], toTable: any[]) {
+          const selections = fromTable === this.TableOne.slice() ? this.TableOneSelections : this.TabSelections;
+          selections.forEach(selectedRecord => {
+            const removedRecordIndex = fromTable.findIndex(record => record === selectedRecord);
+            const removedRecord = fromTable.splice(removedRecordIndex, 1)[0];
+            const indexInSecondTable = toTable.findIndex(record => record.cost_code === removedRecord.cost_code);
+            indexInSecondTable !== -1
+              ? toTable[indexInSecondTable] = removedRecord
+              : toTable.push(removedRecord)
+          });
+          selections.length = 0;
+        }
+        // moveten(fromTable: any[], toTable: any[]) {
+        //   const selections = fromTable === this.TableOne.slice(0,10) ? this.TableOneSelections : this.TabSelections;
+        //   selections.forEach(selectedRecord => {
+        //     const removedRecordIndex = fromTable.findIndex(record => record === selectedRecord);
+        //     const removedRecord = fromTable.splice(removedRecordIndex, 1)[0][1][2][3][4][5][6][7];
+        //     const indexInSecondTable = toTable.findIndex(record => record.cost_code === removedRecord.cost_code);
+        //     indexInSecondTable !== -1
+        //       ? toTable[indexInSecondTable] = removedRecord
+        //       : toTable.push(removedRecord)
+        //   });
+        //   selections.length = 0;
+        // }
+}
 
 
 
