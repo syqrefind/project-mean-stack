@@ -1,18 +1,25 @@
 <div class="row survey-field">
   <div class="col-sm-4 cell">
     Field <br>
-    <input type='text' #username="ngModel" ngModel name='username' id="username" required email />
+    <input type='text' #fieldname="ngModel" ngModel name='fieldname' id="fieldname" />
   </div>
   <div class="col-sm-3 cell">
     Type <br>
-    <select class="custom-select">
+    <select class="custom-select" (change)="onSelect($event.target.value)" [(ngModel)]="selectedType.id">
+      <option *ngFor="let type of types" value={{type.id}}>{{type.name}}</option>
+    </select>
+
+    <!-- <select class="custom-select">
       <option value="1">Number</option>
       <option value="2">Text</option>
       <option value="3">Formula</option>
-    </select>
+    </select> -->
   </div>
   <div class="col-sm-4 cell">
-
+    <div *ngIf="selectedType.id == 3">
+      Formula <br>
+      <input type='text' #formula="ngModel" ngModel name='formula' id="formula" />
+    </div>
   </div>
   <div class="col-sm-1 cell">
     <button type="button" class="btn btn-success btn-sm delete-button">
@@ -21,3 +28,9 @@
 
   </div>
 </div> <!-- class="row survey-field" -->
+
+<ng-template #notShow>
+  <p>
+    
+  </p>
+</ng-template>
