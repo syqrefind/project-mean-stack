@@ -1,38 +1,99 @@
 <div class="container-fluid main-container">
   <div class="row">
-    <div class="col-sm-4">
+    <div class="col-sm-4 left-side">
+      <div class="fields-heading">
+        Project Scope Fields
+      </div>
 
-        <table class="table table-striped table-bordered">
-            <!-- <thead>
-              <tr>
-                <th scope="col">#</th>
-                <th scope="col">First</th>
-                <th scope="col">Last</th>
-                <th scope="col">Handle</th>
-              </tr>
-            </thead> -->
-            <tbody>
-              <tr>
-                <!-- <th scope="row">1</th> -->
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-              </tr>
-              <tr>
-                <!-- <th scope="row">2</th> -->
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-              </tr>
-              <tr>
-                <!-- <th scope="row">3</th> -->
-                <td>Larry</td>
-                <td>the Bird</td>
-                <td>@twitter</td>
-              </tr>
-            </tbody>
-          </table>
+      <table class="table table-striped table-bordered">
+          <thead>
+            <tr>
+              <th scope="col"><span class="normal">name</span></th>
+              <th scope="col"><span class="normal">
+                <input class="simple-checkbox" type="checkbox" checked disabled>
+                <!-- <div class="custom-control custom-checkbox">
+                  <input type="checkbox" class="custom-control-input" id="defaultCheck1" checked disabled>
+                  <label class="custom-control-label" for="defaultCheck1"></label>
+                </div> -->
+              </span></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>cost_code</td>
+              <td>
+                <input class="simple-checkbox" type="checkbox" checked disabled>
+                <!-- <div class="custom-control custom-checkbox">
+                  <input type="checkbox" class="custom-control-input" id="customCheck2">
+                  <label class="custom-control-label" for="customCheck2"></label>
+                </div> -->
+              </td>
+            </tr>
+            <tr>
+              <td>editable</td>
+              <td>
+                <div class="custom-control custom-checkbox">
+                  <input type="checkbox" class="custom-control-input" id="customCheck3">
+                  <label class="custom-control-label" for="customCheck3"></label>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>item_id</td>
+              <td>
+                <div class="custom-control custom-checkbox">
+                  <input type="checkbox" class="custom-control-input" id="customCheck4">
+                  <label class="custom-control-label" for="customCheck4"></label>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
 
-    </div>
-  </div>
+    </div> <!-- class="col-sm-4" -->
+
+    <div class="col-sm-8 container-fluid">
+      <div class="fields-heading">
+        Quantity Survey Fields
+      </div>
+      <div class="row survey-field">
+        <div class="col-sm-4 cell">
+          Field <br>
+          <input type='text' #fieldname="ngModel" ngModel name='fieldname' id="fieldname" />
+        </div>
+        <div class="col-sm-3 cell">
+          Type <br>
+          <select class="custom-select">
+            <option value="1">Number</option>
+            <option value="2">Text</option>
+            <option value="3">Formula</option>
+          </select>
+        </div>
+        <div class="col-sm-4 cell">
+          
+        </div>
+        <div class="col-sm-1 cell">
+          <button type="button" class="btn btn-success btn-sm delete-button">
+            <mdb-icon fas icon="trash-alt"></mdb-icon>
+          </button>
+          
+        </div>
+      </div> <!-- class="row survey-field" -->
+
+      <app-template-field></app-template-field>
+      <app-template-field></app-template-field>
+
+      <div class="add-field">
+        <span>Add Field</span>&nbsp;
+        <button type="button" class="btn btn-success btn-sm plus-button">
+        <i class="fas fa-plus"></i>
+        </button>
+      </div>
+
+    </div> <!-- class="col-sm-8 container-fluid" -->
+  </div> <!-- class="row" -->
+</div>
+
+<div class="save">
+  <button id='save-button' type='submit' routerLink='/registration'>SAVE</button>
 </div>

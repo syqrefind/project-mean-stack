@@ -13,7 +13,7 @@ import { SideNavComponent } from './side-nav/side-nav.component';
 import { AuthInterceptor } from './auth-interceptor';
 
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
 
 
 
@@ -57,6 +57,7 @@ import { ProjectPageComponent } from './project-page/project-page.component';
 import { FormulaPageComponent } from './formula-page/formula-page.component';
 import { PaginatorComponent } from './paginator/paginator.component';
 import { TemplatePageComponent } from './template-page/template-page.component';
+import { TemplateFieldComponent } from './template-page/template-field/template-field.component';
 
 
 @NgModule({
@@ -73,6 +74,7 @@ import { TemplatePageComponent } from './template-page/template-page.component';
     FormulaPageComponent,
     PaginatorComponent,
     TemplatePageComponent,
+    TemplateFieldComponent,
   ],
   imports: [
     BrowserModule,
@@ -128,6 +130,7 @@ import { TemplatePageComponent } from './template-page/template-page.component';
     MatTreeModule,
     NgbModule,
     HttpClientModule,
+    MDBBootstrapModule.forRoot()
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
