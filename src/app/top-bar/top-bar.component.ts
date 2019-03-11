@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { LoginService } from '../services/login.service';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-top-bar',
@@ -7,8 +8,10 @@ import { LoginService } from '../services/login.service';
   styleUrls: ['./top-bar.component.css']
 })
 export class TopBarComponent implements OnInit {
+  isAuth = false;
+  userId = '';
 
-  constructor(public loginService: LoginService) { }
+  constructor(public loginService: LoginService, public authService: AuthService) { }
 
   popoverTitle = 'Cost Manager Member since November-2015';
 
@@ -18,6 +21,9 @@ export class TopBarComponent implements OnInit {
 
 
   ngOnInit() {
+    this.isAuth = this.authService.getIsAuth();
+    this.userId = localStorage.getItem('userId');
+    // console.log(`this.authService.getUserId returns ${this.authService.getUserId()}`);
   }
 
 }

@@ -1,11 +1,11 @@
 <div id='top-bar'>
-  <!-- <div id='logo'>
-    <a [routerLink]="['/login']" routerLinkActive="router-link-active" ><i class="fab fa-microsoft fa-3x"></i> Resource Management</a>
-  </div> -->
-  <a [routerLink]="['/login']" routerLinkActive="router-link-active" ><div id='logo'>
-  <i class="fab fa-microsoft fa-3x"></i> Resource Management
-  </div></a>
+  <a [routerLink]="['/resource']" routerLinkActive="router-link-active" >
+    <div id='logo'>
+      <i class="fab fa-microsoft fa-3x"></i> Resource Management
+    </div>
+  </a>
 
+  <span id='project-title' *ngIf="isAuth">Project 1</span>
   <div id='buttons-div'>
 
     <div id='left-button' class='buttons' placement="bottom" 
@@ -16,13 +16,13 @@
                           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
                           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; sign out" popoverTitle={{loginService.username}}>
       <i class="fas fa-user-circle fa-2x" style='margin-top: 10px;'></i>
-      &nbsp;&nbsp;{{ loginService.username }}
+      &nbsp;&nbsp;{{ userId }}
     </div>
 
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
     <div id='right-button' class='buttons'>
-      <i class="fas fa-question-circle fa-2x" style='margin-top: 10px;'></i>
+      <a [routerLink]="['/abc']" routerLinkActive="router-link-active" ><i class="fas fa-question-circle fa-2x" style='margin-top: 10px;'></i></a>
     </div>
     <div id='empty-right' class='empty'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
 
