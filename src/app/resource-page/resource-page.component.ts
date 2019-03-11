@@ -1,8 +1,6 @@
 import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { ResourceService } from '../resource.service';
-import { PageEvent } from '@angular/material';
-import { PaginationService } from '../pagination.service';
-import { AsyncPipe } from '@angular/common';
+import { PaginatorComponent } from '../paginator/paginator.component';
 
 @Component({
   selector: 'app-resource-page',
@@ -10,29 +8,31 @@ import { AsyncPipe } from '@angular/common';
   styleUrls: ['./resource-page.component.css']
 })
 export class ResourcePageComponent implements OnInit {
+  @ViewChild(PaginatorComponent) paginator: PaginatorComponent;
   data: Array<any>;
   columns = ['cost_code', 'name'];
 
-  // pageSize: number;
-  // length: number;
-  // pageSizeOptions: number[];
-  // pageIndex: number;
-  // pageEvent: PageEvent;
 
-  selectedData: Array<object>;
-
-  // @ViewChild(PaginatorComponent) child: PaginatorComponent;
-
-  constructor(public resourceService: ResourceService, public paginationService: PaginationService) {}
+  constructor(public resourceService: ResourceService) {}
 
   ngOnInit() {
-    // subscribe to paginator change and in result: subscribe to response
-    this.resourceService.readResource().subscribe(
+    this.resourceService.readResource(0, 10).subscribe(
       response => {
         this.data = response.data;
       }
     );
 
+  }
+
+  eventChangedHandler(event) {
+    console.log('event is handled!!');
+    console.log(event.pageIndex);
+
+    this.resourceService.readResource(event.pageIndex * event.pageSize,
+      (event.pageIndex + 1) * event.pageSize > 75 ? 75 : (event.pageIndex + 1) * event.pageSize).subscribe(
+    response => {
+      this.data = response.data;
+  });
   }
 
 }

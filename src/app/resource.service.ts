@@ -3,7 +3,6 @@ import { HttpHeaders, HttpClient, HttpErrorResponse } from '@angular/common/http
 import { Router } from '@angular/router';
 import { Subject, Observable, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
-import { PaginationService } from './pagination.service';
 // import { OnInit } from '@angular/core';
 
 import { ResourceData } from './resource-data.model';
@@ -26,19 +25,10 @@ export class ResourceService {
   public startIndex = 0;
   public endIndex = 15;
 
-  constructor(private http: HttpClient, private router: Router, public paginationService: PaginationService) { }
+  constructor(private http: HttpClient, private router: Router) { }
 
-  readResource(): Observable<ResourceData> {
-
-    // if (this.paginationService.pageEvent) {
-// tslint:disable-next-line: max-line-length
-    //   return this.http.get<ResourceData>(BACKEND_URL + '/readResourceViaGet/' + this.paginationService.getStartIndex() + '-' + this.paginationService.getEndIndex());
-    // }
-
-// tslint:disable-next-line: max-line-length
-    return (this.paginationService.pageEvent ? this.http.get<ResourceData>(BACKEND_URL + '/readResourceViaGet/' + this.paginationService.getStartIndex() + '-' + this.paginationService.getEndIndex()) : this.http.get<ResourceData>(BACKEND_URL + '/readResourceViaGet/' + this.startIndex + '-' + this.endIndex));
-
-
+  readResource(start: number, end: number): Observable<ResourceData> {
+    return (this.http.get<ResourceData>(`${BACKEND_URL}/readResourceViaGet/${start}-${end}`));
   }
 
 }

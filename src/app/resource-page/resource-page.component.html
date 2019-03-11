@@ -48,12 +48,12 @@
 
 </table>
 
-<div *ngIf="paginationService.pageEvent">
+<!-- <div *ngIf="paginationService.pageEvent">
     <h5>Page Change Event Properties (In ResourcPageComponent)</h5>
     <div>Page index: {{paginationService.pageEvent.pageIndex}}</div>
     <div>Page Size: {{paginationService.pageEvent.pageSize}}</div>
-  </div>
-<app-paginator></app-paginator>
+  </div> -->
+<app-paginator (eventChanged)="eventChangedHandler($event)"></app-paginator>
 </div>
       <!-- <ng-template [ngIf]="id < 10">
         <td *ngFor="let col of columns">{{datum[col]}}</td>

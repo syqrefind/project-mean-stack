@@ -1,41 +1,7 @@
-    <div *ngIf="paginationService.pageEvent">
-      <h5>Page Change Event Properties (In PaginatorComponent)</h5>
-      <div>Page index: {{paginationService.pageEvent.pageIndex}}</div>
-      <div>Page size: {{paginationService.pageEvent.pageSize}}</div>
-    </div>
-  <mat-paginator [length]="paginationService.length"
-                [pageSize]="paginationService.pageSize"
-                [pageSizeOptions]="paginationService.pageSizeOptions"
-                (page)="paginationService.pageEvent = $event"
-                showFirstLastButtons>
-  </mat-paginator>
-  
-  
-  
-  <!-- <mat-form-field>
-    List length:
-    <input matInput [(ngModel)]="length">
-  </mat-form-field> -->
-  
-  <!-- <mat-form-field>
-    Page size:
-    <input matInput [(ngModel)]="pageSize">
-  </mat-form-field> -->
-  <!-- <mat-form-field>
-    Page size options:
-    <input matInput
-           [ngModel]="pageSizeOptions"
-           (ngModelChange)="setPageSizeOptions($event)">
-  </mat-form-field> -->
-  
-  <!-- <mat-paginator [length]="length"
+  <mat-paginator [length]="length"
                 [pageSize]="pageSize"
                 [pageSizeOptions]="pageSizeOptions"
-                (page)="pageEvent = $event">
-  </mat-paginator> -->
-  <!-- <div *ngIf="pageEvent">
-    <h5>Page Change Event Properties</h5>
-    <div>List length: {{pageEvent.length}}</div>
-    <div>Page size: {{pageEvent.pageSize}}</div>
-    <div>Page index: {{pageEvent.pageIndex}}</div>
-  </div> -->
+                (page)="onClick($event)"
+                showFirstLastButtons>
+  </mat-paginator>
+                <!-- (page)="onClick($event);pageEvent = $event" -->

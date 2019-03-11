@@ -49,6 +49,14 @@ exports.readResourceViaGet = (req, res, next) =>{
     let end = parseInt(req.params.end);
     console.log(`start is ${start} & end is ${end}`);
     
+    // Modify parameters
+    // if (start < 0){
+    //     start = 0;
+    // }
+    // if (end > 75){
+    //     end = 75;
+    // }
+    
     if (start < 0 || start > end || end > 75){
         return res.status(400).json({
             message: "Bad request: requested indices are out of boundary!"
