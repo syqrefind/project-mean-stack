@@ -5,6 +5,7 @@ const ResourceController= require("../controllers/resource");
 const router = express.Router();
 
 router.post("/createResource", ResourceController.createResource);
+router.post("/createObject", ResourceController.createObject);
 router.get("/readResourceViaGet/:start-:end", ResourceController.readResourceViaGet);
 router.post("/updateResource", ResourceController.updateResource);
 router.post("/deleteResource", ResourceController.deleteResource);

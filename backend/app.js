@@ -13,7 +13,7 @@ const app = express();
 
 mongoose
   .connect(
-    "mongodb+srv://HaiyanYao:Yhy025025@cluster0-xxw5x.mongodb.net/test?retryWrites=true",
+    "mongodb+srv://new-admin-0:8415syq_@my-dream-cluster-seo5i.mongodb.net/management-system?retryWrites=true",
     { useNewUrlParser: true }
   )
   .then(() => {

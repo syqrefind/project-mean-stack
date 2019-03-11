@@ -1,7 +1,41 @@
 // const jwt = require("jsonwebtoken");
 const Resource = require("../models/resource");
 
-// NEED TO CHANGE SO THAT IT CREATE ONE SINGLE DATA OBJECT
+// WORKING
+exports.createObject = (req, res, next) => {
+    // Body: title, new_object
+    let fetchedDocument;
+    Resource.findOne({title: req.body.title}).then(document => {
+        if (!document){
+            return res.status(404).json({
+                message: "Could not find the document!!!",
+            });
+        } 
+        fetchedDocument = document;
+        // add new_object
+        let newData = fetchedDocument.data;
+        // check if object format is correct
+        newData.push(req.body.new_object);
+        // console.log(fetchedDocument.data);
+        // console.log(newData);
+        const newDocument = new Resource({
+            title: fetchedDocument.title,
+            data: newData,
+            _id: fetchedDocument._id
+        });
+        Resource.updateOne({title: req.body.title}, newDocument)
+            .then(result => {
+                if (result.n > 0) {
+                    res.status(200).json({ message: "Created successful!" });
+                    // console.log(newDocument);
+                } else {
+                    res.status(401).json({ message: "Not authorized!" });
+                }
+            });
+    });
+};
+
+// WORKINGk
 exports.createResource = (req, res, next) => {
     // Body: title, data, new_object 
     const resource = new Resource({
@@ -9,7 +43,7 @@ exports.createResource = (req, res, next) => {
         data: req.body.data,
         // new_object: req.body.new_object
     });
-    console.log(resource);
+    // console.log(resource);
     resource.save().then(result => {
         res.status(201).json({
             message: "Resource created!",
