@@ -8,7 +8,6 @@ exports.createResource = (req, res, next) => {
     });
     console.log(resource);
     resource.save().then(result => {
-        // console.log(result);
         res.status(201).json({
             message: "Resource created!",
             result: result

@@ -33,6 +33,9 @@ export class StickyHeaderDirective {
     if (isReachingTop) {
       this.renderer.setStyle(this.el.nativeElement, 'position', 'fixed');
       this.renderer.setStyle(this.el.nativeElement, 'top', '0');
+      this.renderer.setStyle(this.el.nativeElement, 'width', '100%');
+      // this.renderer.setStyle(this.el.nativeElement, 'text-align', 'center');
+      this.renderer.setStyle(this.el.nativeElement, 'padding-left', '250px');
     } else {
       this.renderer.setStyle(this.el.nativeElement, 'position', 'relative');
     }
