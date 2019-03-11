@@ -6,13 +6,15 @@ const mongoose = require("mongoose");
 const postsRoutes = require("./routes/posts");
 const userRoutes = require("./routes/user");
 const resourceRoutes = require("./routes/resource");
+// const projectRoutes = require("./routes/project");
+
 
 const app = express();
 
 mongoose
   .connect(
-      "mongodb+srv://new-admin-0:8415syq_@my-dream-cluster-seo5i.mongodb.net/management-system?retryWrites=true",
-      { useNewUrlParser: true }
+    "mongodb+srv://HaiyanYao:Yhy025025@cluster0-xxw5x.mongodb.net/test?retryWrites=true",
+    { useNewUrlParser: true }
   )
   .then(() => {
     console.log("Connected to database!");
@@ -45,5 +47,7 @@ app.use((req, res, next) => {
 app.use("/api/posts", postsRoutes);
 app.use("/api/user", userRoutes);
 app.use("/api/resource", resourceRoutes);
+// app.use("/api/project", projectRoutes);
+
 
 module.exports = app;

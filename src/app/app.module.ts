@@ -9,6 +9,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginComponent } from './login/login.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { SideNavComponent } from './side-nav/side-nav.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 import { AuthInterceptor } from './auth-interceptor';
 
@@ -132,7 +133,9 @@ import { StickyHeaderDirective } from './sticky-header.directive';
     MatTreeModule,
     NgbModule,
     HttpClientModule,
-    MDBBootstrapModule.forRoot()
+    MDBBootstrapModule.forRoot(),
+    NgxPaginationModule
+
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },

@@ -1,7 +1,27 @@
 mat-form-field {
   width: 50%;
+  /* height: 50%; */
 }
 
 mat-spinner {
   margin: auto;
+}
+
+#whole{
+height: 50%;
+}
+
+#firstline{
+  position: relative;
+left:350px;
+}
+
+#secondline{
+  position: relative;
+left:366px;
+}
+
+#btn{
+  position: relative;
+left:366px;
 }
