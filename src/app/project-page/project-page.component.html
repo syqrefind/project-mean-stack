@@ -1,6 +1,6 @@
- <select id="selepro" [(ngModel)]="selepro" (change)='projecttwo($event.target.value)' style="display:block;float: right; width:180px; position:relative;right:8%">
-    <option (click)="projecttwo('title:project0')" value="title:project0"  selected="selected">Project 1</option>
-    <option (click)="projectone('title:project1')" value="title:project1">Project 2</option>
+ <select id="selepro" [(ngModel)]="selepro" (change)='projecttwo($event)' style="display:block;float: right; width:180px; position:relative;right:8%">
+    <option value="project0"  selected="selected">Project 1</option>
+    <option value="project1">Project 2</option>
 </select> 
 
 
@@ -93,23 +93,26 @@
       </tr>
           </thead>
           <tbody>
-          <tr *ngFor="let datum of Tab| paginate: { itemsPerPage: 10, currentPage: p }; "> 
+          <tr *ngFor="let datum of Tab| paginate: { itemsPerPage: 10, currentPage: p }; " [(ngModel)]="Tab"> 
           <td>
           <input type="checkbox"  (change)="onSelectionChanged($event, datum, Tab)">
           </td> 
-          <td>{{datum.cost_code}}</td>
-          <td> {{datum.name}}</td>     
+          <!-- <td>{{datum.cost_code}}</td>
+          <td> {{datum.name}}</td>      -->
+          <td *ngFor="let col of columns">{{datum[col]}}</td>
           </tr>
           </tbody>
           </table>
-      <a  (click)="ten(TableOne,Tab)" class="btn btn-warning btn-sm" style="float:left;margin:10px;">        
+      <a   name="Click" value="Click" (click)="refresh()" class="btn btn-warning btn-sm" style="float:left;margin:10px;">        
       <span>Move</span></a>         
       <div style="width:400px;font-size:12px;display:inline-block;position: relative;left:45%;margin:8px;">
       <pagination-controls (pageChange)="p = $event"></pagination-controls>
       </div>
 
   </div>
-<!-- ----------------------------------------------------table three------------------------------------------------------------ -->
+  <!-- <app-formula-page [data]=Tab></app-formula-page> -->
+  
+  <!-- ------------------------------------------------table three------------------------------------------------------------ -->
 
 
 <!-- <div id='table' style="width:70%;display:inline-block;position: relative;left:10%;">
