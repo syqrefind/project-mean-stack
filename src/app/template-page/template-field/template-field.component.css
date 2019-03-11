@@ -23,10 +23,6 @@
     height: 18px;
 }
 
-.custom-control-label {
-    cursor: pointer;
-}
-
 .fields-heading {
     height: 50px;
     background-color: #ededed;
@@ -81,7 +77,6 @@ input[type='text'] {
 .add-field {
     float: right;
     margin-top: 15px;
-    margin-bottom: 5px;
 }
 
 .save {
