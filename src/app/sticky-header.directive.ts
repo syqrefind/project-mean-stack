@@ -9,7 +9,6 @@ export class StickyHeaderDirective {
 
   @HostListener('window:scroll', ['$event'])
   public windowScrolled($event) {
-    console.log(this.isContent);
     if (this.isContent) {
       this.windowScrollEventContent($event);
     } else {
@@ -34,11 +33,15 @@ export class StickyHeaderDirective {
       this.renderer.setStyle(this.el.nativeElement, 'position', 'fixed');
       this.renderer.setStyle(this.el.nativeElement, 'top', '0');
       this.renderer.setStyle(this.el.nativeElement, 'width', '100%');
-      // this.renderer.setStyle(this.el.nativeElement, 'text-align', 'center');
-      this.renderer.setStyle(this.el.nativeElement, 'padding-left', '250px');
+      this.renderer.setStyle(this.el.nativeElement.children[0], 'padding-left', '75%');
+      this.renderer.setStyle(this.el.nativeElement.children[1], 'padding-left', '225%');
     } else {
       this.renderer.setStyle(this.el.nativeElement, 'position', 'relative');
+      this.renderer.setStyle(this.el.nativeElement.children[0], 'padding-left', '0');
+      this.renderer.setStyle(this.el.nativeElement.children[1], 'padding-left', '0');
     }
+    // console.log('children:' + this.el.nativeElement.children[2]);  // children[0] and children[1] are the two <th>
+    // console.log('parentNode:' + this.el.nativeElement.parentNode);
   }
 
   getTop() {

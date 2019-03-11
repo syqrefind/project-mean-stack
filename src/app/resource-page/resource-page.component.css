@@ -7,7 +7,23 @@
     margin-bottom: 4.4%;
     padding: 0;
 }
+table {
+    width: 100%;
+    white-space: nowrap;
+    table-layout: fixed;
+}
 
+td {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+table {
+    width: 100%;
+    white-space: nowrap;
+    table-layout: fixed;
+}
 #header {
     width:100%;
     height:8%;
@@ -19,12 +35,9 @@
     font-size:16px;
     display:inline-block;
 }
-table {
-    width: 100%;
-    white-space: nowrap;
-    table-layout: fixed;
+#header-row{
+    background-color: #EBEDF0;
 }
-
 
 
 #search-keyword {
@@ -60,3 +73,48 @@ button:focus {
     outline: 0;
     box-shadow: none !important;
 }
+/* used for directive */
+  /* https://codesandbox.io/s/kw7q12q9zr */
+  .navbar {
+    /* display: flex; */
+    width: 93.1%;
+    background-color: #726E6E;
+  }
+  
+  .headerElement {
+    padding: 20px;
+  }
+  
+  .headerElement:hover {
+    background: red;
+  }
+  
+  .content {
+    max-width: 90vw;
+    margin: auto;
+    font-size: 20px;
+  }
+  
+  .reclame {
+    font-size: 20px;
+    max-width: 95vw;
+  }
+  
+  .small-box {
+    height: 200px;
+    width: 70vw;
+    display: flex;
+    overflow: auto;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+    margin-bottom: 50px;
+  }
+  
+  .immutable-header {
+    background: red;
+    color: white;
+    position: sticky;
+    top: 0;
+  }

@@ -1,27 +1,27 @@
-<div id='table-div'>
-  <div id='header'>
-  <input id='search-keyword' type="text" placeholder="Keyword" style="width:180px;height:27px; margin:6px" >
-  <button type="button" class="btn btn-success" style="width:30px;height:30px;float:left;margin-top:4px; margin-bottom: 4px; margin-left: -6px;">
-    <i class="far fa-search"></i>
-  </button>
-    <p id='header-text' >Resource Catalog</p>
-    <button type="button" class="btn btn-success btn-sm" style="width:30px;height:30px;float:right;margin-top:5px;margin-bottom: 4px; ">
-      <i class="fas fa-plus"></i>
-    </button>
+<div class='container'><div id='table-div'>
+<div id='header'>
+<input id='search-keyword' type="text" placeholder="Keyword" style="width:180px;height:27px; margin:6px" >
+<button type="button" class="btn btn-success" style="width:30px;height:30px;float:left;margin-top:4px; margin-bottom: 4px; margin-left: -6px;">
+<i class="far fa-search"></i>
+</button>
+<p id='header-text' >Resource Catalog</p>
+<button type="button" class="btn btn-success btn-sm" style="width:30px;height:30px;float:right;margin-top:5px;margin-bottom: 4px; ">
+<i class="fas fa-plus"></i>
+</button>
 </div>
 <table>
-  <thead>
-    <tr appStickyHeader [topOffset]=165>
-      <th>RESOURCE NAME</th> 
-      <th>RESOURCE CODE</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let datum of data">
-        <td *ngFor="let col of columns">{{datum[col]}}</td>
-    </tr>
-  </tbody>
+<thead>
+<tr id='header-row' appStickyHeader [topOffset]=165>
+<th>RESOURCE NAME</th>
+<th>RESOURCE CODE</th>
+</tr>
+</thead>
+<tbody>
+<tr *ngFor="let datum of data">
+<td *ngFor="let col of columns">{{datum[col]}}</td>
+</tr>
+</tbody>
 </table>
 
 <app-paginator (eventChanged)="eventChangedHandler($event)"></app-paginator>
-</div>
+</div></div>
