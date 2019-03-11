@@ -9,7 +9,6 @@ a { color: inherit; }
     z-index: 10;
     overflow: visible;
     position: relative;
-    padding-bottom: -7px;
 }
 
 #logo {
@@ -21,10 +20,9 @@ a { color: inherit; }
     width: 20%;
     min-width: 225px;
     padding-bottom: 5px;
-    padding-top: 5px;
+    padding-top: 7px;
     letter-spacing: 0.5px;
     height: 61px;
-    /* margin-bottom: -10px; */
 }
 #buttons-div {
     display: block;
