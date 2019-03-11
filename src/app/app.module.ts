@@ -58,6 +58,7 @@ import { FormulaPageComponent } from './formula-page/formula-page.component';
 import { PaginatorComponent } from './paginator/paginator.component';
 import { TemplatePageComponent } from './template-page/template-page.component';
 import { TemplateFieldComponent } from './template-page/template-field/template-field.component';
+import { StickyHeaderDirective } from './sticky-header.directive';
 
 
 @NgModule({
@@ -75,6 +76,7 @@ import { TemplateFieldComponent } from './template-page/template-field/template-
     PaginatorComponent,
     TemplatePageComponent,
     TemplateFieldComponent,
+    StickyHeaderDirective,
   ],
   imports: [
     BrowserModule,

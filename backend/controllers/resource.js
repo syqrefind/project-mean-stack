@@ -18,44 +18,13 @@ exports.createResource = (req, res, next) => {
             message: "Resouce Creation FAILED!!!",
         })
     })
-}
+};
 
-// Please dont't use this after the GET handler is done.
-exports.readResource = (req, res, next) =>{
-
-    let fetchedResource;
-    Resource.findOne({title: req.body.title}).then(resource => {
-        if (!resource){
-            return res.status(404).json({
-                message: "Could not find the document!!!",
-            });
-        }
-
-        fetchedResource = resource;
-        
-        return res.status(200).json({
-            message: "Document found.",
-            data: resource.data,
-        });
-    }).catch(err => {
-        return res.status(404).json({
-            message: "Oops! Data lost in the void",
-        })
-    });
-}
 
 exports.readResourceViaGet = (req, res, next) =>{
     let start = parseInt(req.params.start);
     let end = parseInt(req.params.end);
     console.log(`start is ${start} & end is ${end}`);
-    
-    // Modify parameters
-    // if (start < 0){
-    //     start = 0;
-    // }
-    // if (end > 75){
-    //     end = 75;
-    // }
     
     if (start < 0 || start > end || end > 75){
         return res.status(400).json({
@@ -72,10 +41,7 @@ exports.readResourceViaGet = (req, res, next) =>{
         }
 
         fetchedDocument = document;
-        // return res.status(200).json({
-        //     message: "Document found.",
-        //     data: document.data,
-        // });
+        
         let data = document.data;
         let selectedData = [];
 
@@ -93,5 +59,74 @@ exports.readResourceViaGet = (req, res, next) =>{
             message: "Oops! Document lost in the void.",
         })
     });
-}
+};
 
+// pass in title, index, and new_object
+exports.updateResource = (req, res, next) => {
+    const index = req.body.index;
+    
+    let fetchedDocument;
+    Resource.findOne({title: req.body.title}).then(document => {
+        if (!document){
+            return res.status(404).json({
+                message: "Could not find the document!!!",
+            });
+        }
+        fetchedDocument = document;
+        // update data with given index
+        let newData = fetchedDocument.data;
+        newData[index] = req.body.new_object;
+        const newDocument = new Resource({
+            title: req.body.title,
+            data: newData,
+        });
+        Resource.updateOne({title: req.body.title}, newDocument)
+            .then(result => {
+                if (result.n > 0) {
+                    res.status(200).json({ message: "Update successful!" });
+                } else {
+                    res.status(401).json({ message: "Not authorized!" });
+                }
+            });
+    });
+  };
+
+// pass in title, index
+exports.deleteResource = (req, res, next) =>{
+    const index = req.body.index;
+
+    let fetchedDocument;
+    Resource.findOne({title: req.body.title}).then(document=> {
+        if (!document){
+            return res.status(404).json({
+                message: "Could not find the document!!!",
+            });
+        }
+
+        fetchedDocument = document;
+        if(!document.data[index]){
+            return res.status(404).json({
+                message: "Could not find the object!",
+            });
+        }
+        let newData = fetchedDocument.data;
+        newData.splice(index, 1);
+        const newDocument = new Resource({
+            title: req.body.title,
+            data: newData,
+        });
+        Resource.updateOne({title: req.body.title}, newDocument)
+            .then(result => {
+                if (result.n > 0) {
+                    res.status(200).json({ message: "Delete successful!" });
+                } else {
+                    res.status(401).json({ message: "Not authorized!" });
+                }
+            });
+        
+    }).catch(err => {
+        return res.status(404).json({
+            message: "Oops! Unexpected Error",
+        })
+    });
+};

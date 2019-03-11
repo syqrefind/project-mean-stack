@@ -1,60 +1,27 @@
-<div id='table'>
-
-<div id='header' style="width:100%;height:8%;background-color:rgb(114, 110, 110);">
-
-<input id='search-keyword' type="text" placeholder="Keyword" style="width:180px;height:27px; margin:6px" >
-
-<button type="button" class="btn btn-success" style="width:30px;height:30px;float:left;margin-top:4px; margin-bottom: 4px; margin-left: -6px;">
-  <i class="far fa-search"></i>
-</button>
-
-  <p style="color:rgb(48, 47, 47);font-size:16px;display:inline-block;left:28%;top:8%;">Resource Catalog</p>
-
-  <button type="button" class="btn btn-success btn-sm" style="width:30px;height:30px;float:right;margin-top:5px;margin-bottom: 4px; ">
-    <i class="fas fa-plus"></i>
+<div id='table-div'>
+  <div id='header'>
+  <input id='search-keyword' type="text" placeholder="Keyword" style="width:180px;height:27px; margin:6px" >
+  <button type="button" class="btn btn-success" style="width:30px;height:30px;float:left;margin-top:4px; margin-bottom: 4px; margin-left: -6px;">
+    <i class="far fa-search"></i>
   </button>
-
+    <p id='header-text' >Resource Catalog</p>
+    <button type="button" class="btn btn-success btn-sm" style="width:30px;height:30px;float:right;margin-top:5px;margin-bottom: 4px; ">
+      <i class="fas fa-plus"></i>
+    </button>
 </div>
-
 <table>
   <thead>
-    <tr>
+    <tr appStickyHeader [topOffset]=165>
       <th>RESOURCE NAME</th> 
       <th>RESOURCE CODE</th>
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let datum of data">
-    <!-- ########TOTALLY GAVE UP FRONTEND PAGINATION; MOVED TO BACKEDN PAGINATION -->
-
-    <!-- <tr *ngFor="let datum of data  | slice: 0:10; let id = index;"> -->
-    <!-- <tr *ngFor="let datum of data  | slice: paginationService.getStartIndex():paginationService.getEndIndex(); let id = index;"> -->
-    <!-- <tr *ngFor="let datum of data | slice: paginationService.pageEvent.pageIndex: paginationService.pageEvent.pageSize; let id = index;"> -->
-    
-    <!-- <ng-template [ngIf]="!paginationService.pageEvent">
-      <tr *ngFor="let datum of data | slice: 0:10; let id = index;">
-          {{id}}#&nbsp;&nbsp;&nbsp;&nbsp; -->
         <td *ngFor="let col of columns">{{datum[col]}}</td>
     </tr>
-
-    <!-- </ng-template><ng-template [ngIf]="paginationService.pageEvent">
-      <tr *ngFor="let datum of data | slice: (paginationService.pageEvent.pageIndex - 1) * paginationService.pageEvent.pageSize: paginationService.pageEvent.pageIndex * paginationService.pageEvent.pageSize; let id = index;">
-          {{id}}#&nbsp;&nbsp;&nbsp;&nbsp;
-        <td *ngFor="let col of columns">{{datum[col]}}</td>
-    </tr> -->
-    <!-- </ng-template> -->
   </tbody>
-
-
 </table>
 
-<!-- <div *ngIf="paginationService.pageEvent">
-    <h5>Page Change Event Properties (In ResourcPageComponent)</h5>
-    <div>Page index: {{paginationService.pageEvent.pageIndex}}</div>
-    <div>Page Size: {{paginationService.pageEvent.pageSize}}</div>
-  </div> -->
 <app-paginator (eventChanged)="eventChangedHandler($event)"></app-paginator>
 </div>
-      <!-- <ng-template [ngIf]="id < 10">
-        <td *ngFor="let col of columns">{{datum[col]}}</td>
-      </ng-template> -->
