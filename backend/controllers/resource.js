@@ -1,7 +1,7 @@
 // const jwt = require("jsonwebtoken");
 const Resource = require("../models/resource");
 
-// 
+// WORKING
 exports.createObject = (req, res, next) => {
     // Body: title, new_object
     let fetchedDocument;
@@ -176,7 +176,7 @@ exports.updateResource = (req, res, next) => {
     });
   };
 
-// NEED TEST
+// WORKING
 exports.deleteResource = (req, res, next) =>{
     // Body: title, index
     const index = req.body.index;
@@ -190,11 +190,11 @@ exports.deleteResource = (req, res, next) =>{
         }
 
         fetchedDocument = document;
-        console.log(fetchedDocument.data[20]);
+        console.log(fetchedDocument.data[75]);
 
         // console.log(fetchedDocument.data[index]);
 
-        if(!document.data[index]){
+        if(!fetchedDocument.data[index]){
             return res.status(404).json({
                 message: "Could not find the object!",
             });
@@ -204,6 +204,7 @@ exports.deleteResource = (req, res, next) =>{
         const newDocument = new Resource({
             title: req.body.title,
             data: newData,
+            _id: fetchedDocument._id
         });
         Resource.updateOne({title: req.body.title}, newDocument)
             .then(result => {
