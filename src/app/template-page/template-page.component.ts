@@ -12,4 +12,8 @@ export class TemplatePageComponent implements OnInit {
   ngOnInit() {
   }
 
+  onAddField() {
+    console.log("Adding field!")
+  }
+
 }
