@@ -22,7 +22,7 @@ export class TopBarComponent implements OnInit {
 
   ngOnInit() {
     this.isAuth = this.authService.getIsAuth();
-    this.userId = localStorage.getItem('userId');
+    this.userId = this.authService.parseJwt(localStorage.getItem('token')).email;
     // console.log(`this.authService.getUserId returns ${this.authService.getUserId()}`);
   }
 

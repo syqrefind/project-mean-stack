@@ -35,6 +35,8 @@ export class StickyHeaderDirective {
       this.renderer.setStyle(this.el.nativeElement, 'width', '100%');
       this.renderer.setStyle(this.el.nativeElement.children[0], 'padding-left', '75%');
       this.renderer.setStyle(this.el.nativeElement.children[1], 'padding-left', '225%');
+      // this.renderer.setStyle(this.el.nativeElement.children[0], 'border', '1px solid #D9D9D9');
+      // this.renderer.setStyle(this.el.nativeElement.children[1], 'border', '1px solid #D9D9D9');
     } else {
       this.renderer.setStyle(this.el.nativeElement, 'position', 'relative');
       this.renderer.setStyle(this.el.nativeElement.children[0], 'padding-left', '0');
