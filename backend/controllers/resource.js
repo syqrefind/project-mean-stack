@@ -1,10 +1,13 @@
 // const jwt = require("jsonwebtoken");
 const Resource = require("../models/resource");
 
+// NEED TO CHANGE SO THAT IT CREATE ONE SINGLE DATA OBJECT
 exports.createResource = (req, res, next) => {
+    // Body: title, data, new_object 
     const resource = new Resource({
         title: req.body.title,
         data: req.body.data,
+        // new_object: req.body.new_object
     });
     console.log(resource);
     resource.save().then(result => {
@@ -19,7 +22,7 @@ exports.createResource = (req, res, next) => {
     })
 };
 
-
+// WORKING
 exports.readResourceViaGet = (req, res, next) =>{
     let start = parseInt(req.params.start);
     let end = parseInt(req.params.end);
@@ -60,9 +63,11 @@ exports.readResourceViaGet = (req, res, next) =>{
     });
 };
 
-// pass in title, index, and new_object
+// WORKING
 exports.updateResource = (req, res, next) => {
+    // Body: title, index, new_object
     const index = req.body.index;
+    console.log('get requested!');
     
     let fetchedDocument;
     Resource.findOne({title: req.body.title}).then(document => {
@@ -72,12 +77,15 @@ exports.updateResource = (req, res, next) => {
             });
         }
         fetchedDocument = document;
+        console.log('document fetched!')
         // update data with given index
         let newData = fetchedDocument.data;
         newData[index] = req.body.new_object;
+        console.log('newData is' + newData);
         const newDocument = new Resource({
             title: req.body.title,
             data: newData,
+            _id: fetchedDocument._id
         });
         Resource.updateOne({title: req.body.title}, newDocument)
             .then(result => {
@@ -90,8 +98,9 @@ exports.updateResource = (req, res, next) => {
     });
   };
 
-// pass in title, index
+// NEED TEST
 exports.deleteResource = (req, res, next) =>{
+    // Body: title, index
     const index = req.body.index;
 
     let fetchedDocument;
