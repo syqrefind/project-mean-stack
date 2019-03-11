@@ -12,10 +12,10 @@ import { ResourceService } from '../project.service';
 export class ProjectPageComponent implements OnInit {
 
 
-   TableOne:Array<any>;
+   TableOne: Array<any>;
    columns = ['cost_code', 'name'];
-   Tab=[]
-   Tabthird=[]
+   Tab = [];
+   Tabthird = [];
    pager: any = {};
    pagedItems: any[];
    selectedAll: any;
@@ -23,13 +23,13 @@ export class ProjectPageComponent implements OnInit {
   constructor(public resourceService: ResourceService) {}
 
   ngOnInit() {
-        this.resourceService.readResource({title:'project0'}).subscribe(
+        this.resourceService.readResource({title: 'project0'}).subscribe(
           response => {
 
             this.TableOne = response.data;
             this.setPage(1);
 
-          }  ) }
+          }  ); }
 
 
           readonly TableOneSelections = [];
@@ -46,7 +46,7 @@ export class ProjectPageComponent implements OnInit {
           const indexInSecondTable = toTable.findIndex(record => record.cost_code === removedRecord.cost_code);
           indexInSecondTable !== 0
             ? toTable[indexInSecondTable] = removedRecord
-            : toTable.push(removedRecord)
+            : toTable.push(removedRecord);
         });
         selections.length = 0;
       }
@@ -59,7 +59,7 @@ export class ProjectPageComponent implements OnInit {
           const indexInSecondTable = toTable.findIndex(record => record.cost_code === removedRecord.cost_code);
           indexInSecondTable !== -1
             ? toTable[indexInSecondTable] = removedRecord
-            : toTable.push(removedRecord)
+            : toTable.push(removedRecord);
         });
         selections.length = 0;
       }
@@ -79,52 +79,52 @@ export class ProjectPageComponent implements OnInit {
 
   getSelectedRecords(fromTable: any[]) {
         const selections = fromTable === this.TableOne ? this.TableOneSelections : this.TabSelections;
-        console.log(selections)
+        console.log(selections);
       }
 
   onSelectionChanged(event, record, table) {
         const selections = table === this.TableOne ? this.TableOneSelections : this.TabSelections;
         event.target.checked
           ? selections.push(record)
-          : selections.splice(selections.findIndex(selection => selection.cost_code === record.cost_code), 1)
+          : selections.splice(selections.findIndex(selection => selection.cost_code === record.cost_code), 1);
         }
 
 setPage(page: number) {
         this.pager = this.resourceService.getPager(this.TableOne.length, page);
 
-        this.pagedItems = this.TableOne.slice(this.pager.startIndex, this.pager.endIndex +1);
+        this.pagedItems = this.TableOne.slice(this.pager.startIndex, this.pager.endIndex + 1);
  }
 
 getpagertwty(page: number) {
       this.pager = this.resourceService.getPagertwty(this.TableOne.length, page);
 
-      this.pagedItems = this.TableOne.slice(this.pager.startIndex, this.pager.endIndex +1);
+      this.pagedItems = this.TableOne.slice(this.pager.startIndex, this.pager.endIndex + 1);
 }
 
 getpagerthid(page: number) {
       this.pager = this.resourceService.getPagerthid(this.TableOne.length, page);
 
-      this.pagedItems = this.TableOne.slice(this.pager.startIndex, this.pager.endIndex +1);
+      this.pagedItems = this.TableOne.slice(this.pager.startIndex, this.pager.endIndex + 1);
 }
 
 projecttwo() {
-  this.resourceService.readResource({title:'project1'}).subscribe(
+  this.resourceService.readResource({title: 'project1'}).subscribe(
     response => {
 
       this.TableOne = response.data;
-      console.log(this.TableOne)
+      console.log(this.TableOne);
       this.setPage(1);
 
-    }  ) }
-    
+    }  ); }
+
 // projectone() {
 //   this.resourceService.readResource({title:'project0'}).subscribe(
 //         response => {
-    
+
 //           this.TableOne = response.data;
 //           console.log(this.TableOne)
 //           this.setPage(1);
-    
+
 //         }  ) }
 
 selectAll() {
@@ -134,9 +134,9 @@ selectAll() {
         }
 
 checkIfAllSelected() {
-          this.selectedAll = this.TableOne.every(function(item:any) {
+          this.selectedAll = this.TableOne.every(function(item: any) {
               return item.selected == true;
-            })
+            });
         }
 
         moveten(fromTable: any[], toTable: any[]) {
@@ -147,7 +147,7 @@ checkIfAllSelected() {
             const indexInSecondTable = toTable.findIndex(record => record.cost_code === removedRecord.cost_code);
             indexInSecondTable !== -1
               ? toTable[indexInSecondTable] = removedRecord
-              : toTable.push(removedRecord)
+              : toTable.push(removedRecord);
           });
           selections.length = 0;
         }
