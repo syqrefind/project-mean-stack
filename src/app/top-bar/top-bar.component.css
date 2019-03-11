@@ -9,7 +9,9 @@ a { color: inherit; }
     z-index: 10;
     overflow: visible;
     position: relative;
+    padding-bottom: -7px;
 }
+
 #logo {
     display: block;
     float: left;
@@ -21,6 +23,8 @@ a { color: inherit; }
     padding-bottom: 5px;
     padding-top: 5px;
     letter-spacing: 0.5px;
+    height: 61px;
+    /* margin-bottom: -10px; */
 }
 #buttons-div {
     display: block;
