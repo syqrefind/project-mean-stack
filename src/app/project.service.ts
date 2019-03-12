@@ -23,6 +23,8 @@ const httpOptions = {
 })
 
 export class ResourceService {
+    title = 'project0';
+
     private resourceStatusListener = new Subject<boolean>();
 
     constructor(private http: HttpClient, private router: Router) { }
@@ -30,11 +32,13 @@ export class ResourceService {
     readResource(resourceData: ResourceData): Observable<ResourceData> {
 
       console.log('in service, triggered!!!!');
-
-      return this.http.post<ResourceData>(BACKEND_URL + '/readResource/', resourceData);
+  
+      return this.http.get<ResourceData>(BACKEND_URL + '/readResource/' + this.title +'.0-75');
       // ***********NEED ERROR HANDLING HERE***************
-    }
+    } 
 
+
+  
     getPager(totalItems: number, currentPage: number = 1, pageSize: number = 10) {
       // calculate total pages
       let totalPages = Math.ceil(totalItems / pageSize);
