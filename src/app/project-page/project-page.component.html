@@ -93,7 +93,8 @@
       </tr>
           </thead>
           <tbody>
-          <tr *ngFor="let datum of Tab| paginate: { itemsPerPage: 10, currentPage: p }; " [(ngModel)]="Tab"> 
+          <!-- <tr *ngFor="let datum of Tab| paginate: { itemsPerPage: 10, currentPage: p }; " [(ngModel)]="Tab">  -->
+          <tr *ngFor="let datum of Tab| paginate: { itemsPerPage: 10, currentPage: p }; "> 
           <td>
           <input type="checkbox"  (change)="onSelectionChanged($event, datum, Tab)">
           </td> 
