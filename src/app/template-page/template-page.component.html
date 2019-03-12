@@ -83,9 +83,17 @@
       <app-template-field></app-template-field>
       <app-template-field></app-template-field>
 
+      <div *ngFor="let item of list">
+        <app-template-field></app-template-field>
+      </div>
+
+      <!-- <ng-template [ngIf]="renderTemplate">
+        <app-template-field></app-template-field>
+      </ng-template> -->
+
       <div class="add-field">
         <span>Add Field</span>&nbsp;
-        <button type="button" (click)=onAddField() class="btn btn-success btn-sm plus-button">
+        <button type="button" (click)=onAddField($event) class="btn btn-success btn-sm plus-button">
         <i class="fas fa-plus"></i>
         </button>
       </div>
@@ -95,5 +103,5 @@
 </div>
 
 <div class="save">
-  <button id='save-button' type='submit' routerLink='/registration'>SAVE</button>
+  <button id='save-button' type='submit' routerLink='/formula' (click)=onSave($event)>SAVE</button>
 </div>
