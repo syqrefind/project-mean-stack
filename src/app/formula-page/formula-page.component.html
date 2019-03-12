@@ -17,7 +17,8 @@
 </tr>
 </thead>
 <tbody>
-<tr *ngFor="let datum of data" [(ngModel)]="Tabthird">
+<!-- <tr *ngFor="let datum of data" [(ngModel)]="Tabthird"> -->
+<tr *ngFor="let datum of data">
 <td *ngFor="let col of columns">{{datum[col]}}</td>
 </tr>
 

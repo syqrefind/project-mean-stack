@@ -12,14 +12,13 @@ import { SharedserviceService } from '../sharedservice.service';
 })
 export class FormulaPageComponent implements OnInit {
   @ViewChild(PaginatorComponent) paginator: PaginatorComponent;
-  
+
 
   data: Array<any>;
   columns = ['cost_code', 'name'];
   Tabthird: [];
 
-  ngOnInit(){}
-  constructor(public resourceService: ResourceService,public sharedserviceService : SharedserviceService) {
+  constructor(public resourceService: ResourceService, public sharedserviceService : SharedserviceService) {
   //   this.sharedserviceService.datum$.subscribe(
   //     data => {
   //         this.datum = data;
@@ -29,26 +28,24 @@ export class FormulaPageComponent implements OnInit {
 
 
 
-  // ngOnInit() {
-  //   this.resourceService.readResource(0, 10).subscribe(
-  //     response => {
-  //       this.data = response.data;
-  //     }
-  //   );
+  ngOnInit() {
+    this.resourceService.readResource(0, 10).subscribe(
+      response => {
+        this.data = response.data;
+      }
+    );
+  }
 
+  eventChangedHandler(event) {
+    console.log('event is handled!!');
+    console.log(event.pageIndex);
 
-  // }
-
-  // eventChangedHandler(event) {
-  //   console.log('event is handled!!');
-  //   console.log(event.pageIndex);
-
-  //   this.resourceService.readResource(event.pageIndex * event.pageSize,
-  //     (event.pageIndex + 1) * event.pageSize > 75 ? 75 : (event.pageIndex + 1) * event.pageSize).subscribe(
-  //   response => {
-  //     this.data = response.data;
-  // });
-  // }
+    this.resourceService.readResource(event.pageIndex * event.pageSize,
+      (event.pageIndex + 1) * event.pageSize > 75 ? 75 : (event.pageIndex + 1) * event.pageSize).subscribe(
+    response => {
+      this.data = response.data;
+  });
+  }
 
 
 
