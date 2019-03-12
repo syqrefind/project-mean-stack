@@ -1,11 +1,13 @@
 <div class='container'><div id='table-div'>
 <div id='header'>
 <input id='search-keyword' type="text" placeholder="Keyword" style="width:180px;height:27px; margin:6px" >
+
 <button type="button" class="btn btn-success" style="width:30px;height:30px;float:left;margin-top:4px; margin-bottom: 4px; margin-left: -6px;">
+
 <i class="far fa-search"></i>
 </button>
 <p id='header-text' >Resource Catalog</p>
-<button type="button" class="btn btn-success btn-sm" style="width:30px;height:30px;float:right;margin-top:5px;margin-bottom: 4px; ">
+<button (click)="addRow($event)" type="button" class="btn btn-success btn-sm" style="width:30px;height:30px;float:right;margin-top:5px;margin-bottom: 4px; ">
 <i class="fas fa-plus"></i>
 </button>
 </div>
@@ -20,6 +22,12 @@
 <tr *ngFor="let datum of data">
 <td *ngFor="let col of columns">{{datum[col]}}</td>
 </tr>
+
+
+<tr id='addedRow' *ngIf="newRow">
+    <td><input type="text" [(ngModel)]="newResourceName"></td><td><input type="text" [(ngModel)]="newResourceCode">&nbsp;<button id='submit-new-row' (click)="submitRow($event)" type='button'>Add</button></td>
+</tr>
+
 </tbody>
 </table>
 

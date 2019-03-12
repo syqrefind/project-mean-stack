@@ -11,6 +11,7 @@ export class ResourcePageComponent implements OnInit {
   @ViewChild(PaginatorComponent) paginator: PaginatorComponent;
   data: Array<any>;
   columns = ['cost_code', 'name'];
+  newRow = false;
 
 
   constructor(public resourceService: ResourceService) {}
@@ -23,6 +24,21 @@ export class ResourcePageComponent implements OnInit {
     );
 
   }
+
+  addRow(event) {
+    console.log('addRow is clicked');
+    if (this.newRow === true) {
+      return;
+    }
+    this.newRow = true;
+  }
+
+  submitRow(event) {
+    console.log('submitRow is clicked');
+    this.newRow = false;
+    // Call API to create
+  }
+
 
   eventChangedHandler(event) {
     console.log('event is handled!!');
