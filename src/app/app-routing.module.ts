@@ -15,10 +15,10 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent},
   { path: 'registration', component: RegistrationComponent},
   { path: 'resource', component: ResourcePageComponent, canActivate: [AuthGuard]},
-  { path: 'resource/:id', redirectTo: '/resource', pathMatch: 'full'},
+  { path: 'resource/:id', redirectTo: '/resource', pathMatch: 'full', canActivate: [AuthGuard]},
   { path: 'project', component: ProjectPageComponent, canActivate: [AuthGuard]},
   { path: 'formula', component: FormulaPageComponent, canActivate: [AuthGuard]},
-  { path: 'template', component: TemplatePageComponent},
+  { path: 'template', component: TemplatePageComponent, canActivate: [AuthGuard]},
   { path: '**', component: PageNotFoundComponent }];
 
 @NgModule({
