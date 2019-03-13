@@ -31,10 +31,9 @@ export class ResourceService {
 
   constructor(private http: HttpClient, private router: Router) { }
 
-  readResource(start: number, end: number): Observable<ResourceData> {
-    return (this.http.get<ResourceData>(`${BACKEND_URL}/readResourceViaGet/${start}-${end}`));
-    // this.request = this.http.get<ResourceData>(`${BACKEND_URL}/readResourceViaGet/${start}-${end}`);
-    // return this.authInterceptor.intercept((this.http.get<ResourceData>(`${BACKEND_URL}/readResourceViaGet/${start}-${end}`)), this.handler);
+  readResource(start: number, end: number, title: string = 'project0'): Observable<ResourceData> {
+    console.log(`${BACKEND_URL}/readResource/${title}.${start}-${end}`);
+    return (this.http.get<ResourceData>(`${BACKEND_URL}/readResource/${title}.${start}-${end}`));
   }
 
 }

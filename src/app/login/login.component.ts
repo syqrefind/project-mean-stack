@@ -1,8 +1,8 @@
 import { Component, OnInit, ViewChild, OnDestroy } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { Subscription } from "rxjs";
+import { Subscription } from 'rxjs';
 
-import { AuthService } from "../auth.service";
+import { AuthService } from '../auth.service';
 import { LoginService } from '../services/login.service';
 
 @Component({
@@ -15,13 +15,13 @@ export class LoginComponent implements OnInit, OnDestroy {
   private authStatusSub: Subscription;
 
   constructor(public authService: AuthService, private loginService: LoginService) {}
-  
+
   @ViewChild('f') signupForm: NgForm;
   // username = 'test_user';
   password = '';
 
   onSubmit(f: NgForm) {
-    console.log('Submitting!')
+    console.log('Submitting!');
     if (f.invalid) {
       return;
     }

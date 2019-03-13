@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { ResourceService } from '../project.service';
+import { ProjectService } from '../project.service';
+import { ResourceService } from '../resource.service';
 import { SharedserviceService } from '../sharedservice.service';
 
 
@@ -14,15 +15,16 @@ export class ProjectPageComponent implements OnInit {
    TableOne: Array<any>;
    columns = ['cost_code', 'name'];
    Tab = [];
-  //  Tabthird = []; 
-   pager: any = {}; 
+  //  Tabthird = [];
+   pager: any = {};
    pagedItems: any[];
    selectedAll: any;
   //  datum:Array<any>;
-  constructor(public resourceService: ResourceService,public sharedserviceService:SharedserviceService) {}
-  
+  constructor(public resourceService: ResourceService, public sharedserviceService: SharedserviceService, public projectService: ProjectService) {}
+
   ngOnInit() {
-        this.resourceService.readResource({title: 'project0'}).subscribe(
+        // this.resourceService.readResource({title: 'project0'}).subscribe(
+        this.resourceService.readResource(0, 75, 'project0').subscribe(
           response => {
             this.TableOne = response.data;
             this.setPage(1);
@@ -72,27 +74,27 @@ export class ProjectPageComponent implements OnInit {
         }
 
 setPage(page: number) {
-        this.pager = this.resourceService.getPager(this.TableOne.length, page);
+        this.pager = this.projectService.getPager(this.TableOne.length, page);
 
         this.pagedItems = this.TableOne.slice(this.pager.startIndex, this.pager.endIndex + 1);
  }
 
 getpagertwty(page: number) {
-      this.pager = this.resourceService.getPagertwty(this.TableOne.length, page);
+      this.pager = this.projectService.getPagertwty(this.TableOne.length, page);
 
       this.pagedItems = this.TableOne.slice(this.pager.startIndex, this.pager.endIndex + 1);
 }
 
 getpagerthid(page: number) {
-      this.pager = this.resourceService.getPagerthid(this.TableOne.length, page);
+      this.pager = this.projectService.getPagerthid(this.TableOne.length, page);
 
       this.pagedItems = this.TableOne.slice(this.pager.startIndex, this.pager.endIndex + 1);
 }
 
 projecttwo(event) {
 
-  this.resourceService.title = event.target.value;
-  this.resourceService.readResource({title: event.target.value}).subscribe(
+  this.projectService.title = event.target.value;
+  this.projectService.readResource({title: event.target.value}).subscribe(
     response => {
       console.log(event.target.value);
       this.TableOne = response.data;
@@ -116,7 +118,7 @@ checkIfAllSelected() {
 //     this.sharedserviceService.publishData(this.datum);
 //         }
 
-  
+
 }
 
 

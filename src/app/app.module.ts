@@ -15,7 +15,7 @@ import { AuthInterceptor } from './auth-interceptor';
 
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
-
+import { AuthService } from './auth.service';
 
 
 import { MatNativeDateModule, MatDatepickerModule, MatIconModule,
@@ -71,7 +71,6 @@ import { StickyHeaderDirective } from './sticky-header.directive';
     ResourcePageComponent,
     PageNotFoundComponent,
     SideNavComponent,
-    RegistrationComponent,
     ProjectPageComponent,
     FormulaPageComponent,
     PaginatorComponent,
@@ -138,6 +137,7 @@ import { StickyHeaderDirective } from './sticky-header.directive';
 
   ],
   providers: [
+    AuthService,
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
     // { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }
   ],

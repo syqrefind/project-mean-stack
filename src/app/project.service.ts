@@ -22,7 +22,7 @@ const httpOptions = {
   providedIn: 'root'
 })
 
-export class ResourceService {
+export class ProjectService {
     title = 'project0';
 
     private resourceStatusListener = new Subject<boolean>();
@@ -33,7 +33,7 @@ export class ResourceService {
 
       console.log('in service, triggered!!!!');
   
-      return this.http.get<ResourceData>(BACKEND_URL + '/readResource/' + this.title +'.0-75');
+      return this.http.get<ResourceData>(BACKEND_URL + '/readResource/' + this.title + '.0-75');
       // ***********NEED ERROR HANDLING HERE***************
     } 
 

@@ -8,7 +8,8 @@ import { AuthData } from './auth-data.model';
 
 const BACKEND_URL = environment.apiUrl + '/user';
 
-@Injectable({ providedIn: 'root' })
+// @Injectable({ providedIn: 'root' })
+@Injectable()
 export class AuthService {
   private isAuthenticated = false;
   private token: string;
@@ -19,6 +20,8 @@ export class AuthService {
   constructor(private http: HttpClient, private router: Router) {}
 
   getToken() {
+    this.token = this.getAuthData().token;
+    console.log('the token we get is ' + this.token);
     return this.token;
   }
 
@@ -77,11 +80,13 @@ export class AuthService {
               now.getTime() + expiresInDuration * 1000
             );
             console.log(expirationDate);
+            console.log(this.getToken());
             this.saveAuthData(token, expirationDate, this.userId);
             this.router.navigate(['/resource']);
           }
         },
         error => {
+          console.log('error in extracting token from response.');
           this.authStatusListener.next(false);
         }
       );
