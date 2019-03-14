@@ -7,8 +7,10 @@ import { catchError, retry } from 'rxjs/operators';
 // import { OnInit } from '@angular/core';
 
 import { ResourceData } from './resource-data.model';
+import { environment } from './environments/environment';
 
-const BACKEND_URL = 'http://localhost:3000/api' + '/resource';
+// const BACKEND_URL = 'http://localhost:3000/api' + '/resource';
+const BACKEND_URL = environment.apiUrl + '/resource';
 
 const httpOptions = {
   headers: new HttpHeaders({
