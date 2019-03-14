@@ -30,8 +30,7 @@ export class TemplateFieldComponent implements OnInit {
     // this.selectedTypeId = typeId;
     // console.log(this.selectedTypeId)
     this.types.forEach(el => {
-      if (el.id === typeId) {
-        // console.log(el);
+      if (el.id == typeId) {
         this.selectedType = el;
       }
     });
