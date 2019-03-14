@@ -32,7 +32,7 @@ export class ResourceService {
   constructor(private http: HttpClient, private router: Router) { }
 
   readResource(start: number, end: number, title: string = 'project0'): Observable<ResourceData> {
-    console.log(`${BACKEND_URL}/readResource/${title}.${start}-${end}`);
+    // console.log(`${BACKEND_URL}/readResource/${title}.${start}-${end}`);
     return (this.http.get<ResourceData>(`${BACKEND_URL}/readResource/${title}.${start}-${end}`));
   }
 

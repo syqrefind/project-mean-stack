@@ -1,4 +1,4 @@
- <select id="selepro" [(ngModel)]="selepro" (change)='projecttwo($event)' style="display:block;float: right; width:180px; position:relative;right:8%">
+ <select id="selepro" (change)='projecttwo($event)' style="display:block;float: right; width:180px; position:relative;right:8%">
     <option value="project0"  selected="selected">Project 1</option>
     <option value="project1">Project 2</option>
 </select> 
@@ -59,8 +59,8 @@
         </table>
 
         <div class="btn-group" style="display:inline-block;position: relative;left:15px;font-size:14px;color:rgb(117, 115, 114)">
-         <li> <a id="twty" (click)="getpagertwty($Event)">Show 20 record</a></li></div>
-         <div style="display:inline-block;position: relative;left:35px;padding:3px; font-size:14px;color:rgb(117, 115, 114)"><li><a id="thty" (click)="getpagerthid($Event)">Show 30 record</a></li></div>
+         <li> <a id="twty" (click)="getpagertwty($event)">Show 20 record</a></li></div>
+         <div style="display:inline-block;position: relative;left:35px;padding:3px; font-size:14px;color:rgb(117, 115, 114)"><li><a id="thty" (click)="getpagerthid($event)">Show 30 record</a></li></div>
 
      <!-- -------------------------------------------------pagenation---------------------------------------------------->
          <div style="position: relative;left:23%;display: inline-block;">
@@ -78,7 +78,8 @@
   <div id='header' style="width:100%;height:8%;background-color:rgb(100, 98, 98);">
 
       <p id="headTP" style="color:rgb(48, 47, 47);font-size:16px;display:inline-block;left:28%;top:8%;">Resource Catalog</p>
-      <a  class="btn btn-warning btn-sm" style="float:right;margin:7px;" (click)="Delete(Tab, Tabthird)"><span class="glyphicon glyphicon-th-list"></span>
+      <!-- <a  class="btn btn-warning btn-sm" style="float:right;margin:7px;" (click)="Delete(Tab, Tabthird)"><span class="glyphicon glyphicon-th-list"></span> -->
+      <a  class="btn btn-warning btn-sm" style="float:right;margin:7px;"><span class="glyphicon glyphicon-th-list"></span>
       <i class="fas fa-trash-alt"></i>
       </a> 
   </div>
@@ -94,7 +95,8 @@
           </thead>
           <tbody>
           <!-- <tr *ngFor="let datum of Tab| paginate: { itemsPerPage: 10, currentPage: p }; " [(ngModel)]="Tab">  -->
-          <tr *ngFor="let datum of Tab| paginate: { itemsPerPage: 10, currentPage: p }; "> 
+          <!-- <tr *ngFor="let datum of Tab| paginate: { itemsPerPage: 10, currentPage: p }; ">  -->
+          <tr *ngFor="let datum of Tab">
           <td>
           <input type="checkbox"  (change)="onSelectionChanged($event, datum, Tab)">
           </td> 
@@ -104,10 +106,12 @@
           </tr>
           </tbody>
           </table>
-      <a   name="Click" value="Click" (click)="refresh()" class="btn btn-warning btn-sm" style="float:left;margin:10px;">        
+      <!-- <a   name="Click" value="Click" (click)="refresh()" class="btn btn-warning btn-sm" style="float:left;margin:10px;">         -->
+      <a   name="Click" value="Click" class="btn btn-warning btn-sm" style="float:left;margin:10px;">        
       <span>Move</span></a>         
       <div style="width:400px;font-size:12px;display:inline-block;position: relative;left:45%;margin:8px;">
-      <pagination-controls (pageChange)="p = $event"></pagination-controls>
+      <!-- <pagination-controls (pageChange)="p = $event"></pagination-controls> -->
+      <pagination-controls (pageChange)="$event"></pagination-controls>
       </div>
 
   </div>

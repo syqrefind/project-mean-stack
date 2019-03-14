@@ -17,7 +17,7 @@ import { AuthService } from './auth.service';
       route: ActivatedRouteSnapshot,
       state: RouterStateSnapshot
     ): boolean | Observable<boolean> | Promise<boolean> {
-      console.log(typeof localStorage.getItem('token'));
+      // console.log(typeof localStorage.getItem('token'));
       const isAuth = this.authService.getIsAuth();
       if (!isAuth) {
         this.router.navigate(['/login']);

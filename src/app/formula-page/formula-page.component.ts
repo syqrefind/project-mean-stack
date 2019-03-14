@@ -18,7 +18,7 @@ export class FormulaPageComponent implements OnInit {
   columns = ['cost_code', 'name'];
   Tabthird: [];
 
-  constructor(public resourceService: ResourceService, public sharedserviceService : SharedserviceService) {
+  constructor(public resourceService: ResourceService, public sharedserviceService: SharedserviceService) {
   //   this.sharedserviceService.datum$.subscribe(
   //     data => {
   //         this.datum = data;
@@ -37,8 +37,8 @@ export class FormulaPageComponent implements OnInit {
   }
 
   eventChangedHandler(event) {
-    console.log('event is handled!!');
-    console.log(event.pageIndex);
+    // console.log('event is handled!!');
+    // console.log(event.pageIndex);
 
     this.resourceService.readResource(event.pageIndex * event.pageSize,
       (event.pageIndex + 1) * event.pageSize > 75 ? 75 : (event.pageIndex + 1) * event.pageSize).subscribe(

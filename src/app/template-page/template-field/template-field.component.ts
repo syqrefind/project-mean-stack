@@ -14,28 +14,28 @@ export class TemplateFieldComponent implements OnInit {
     new Type(1, 'Number'),
     new Type(2, 'Text'),
     new Type(3, 'Formula')
-  ]
+  ];
 
-  fieldName: string = "";
+  fieldName = '';
 
   selectedTypeId: number;
 
   constructor() { }
 
   ngOnInit() {
-  } 
+  }
 
   onSelect(typeId) {
     // console.log(typeId);
     // this.selectedTypeId = typeId;
     // console.log(this.selectedTypeId)
     this.types.forEach(el => {
-      if(el.id == typeId) {
-        console.log(el);
-        this.selectedType = el
+      if (el.id === typeId) {
+        // console.log(el);
+        this.selectedType = el;
       }
-    })
-    console.log(this.selectedType.id, this.selectedType.name)
+    });
+    // console.log(this.selectedType.id, this.selectedType.name)
   }
 
 }

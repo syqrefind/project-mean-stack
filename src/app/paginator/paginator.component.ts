@@ -25,9 +25,9 @@ export class PaginatorComponent {
 
     onClick(event) {
 
-      console.log('Mat got clicked!!!!!!');
+      // console.log('Mat got clicked!!!!!!');
       this.pageEvent = event;
-      console.log(`this.pageEvent.pageIndex=${this.pageEvent.pageIndex}\nevent.pageIndex=${event.pageIndex}`);
+      // console.log(`this.pageEvent.pageIndex=${this.pageEvent.pageIndex}\nevent.pageIndex=${event.pageIndex}`);
       this.eventChanged.emit(event);
     //   this.resourceService.readResource(event.pageIndex * event.pageSize, (event.pageIndex + 1) * event.pageSize).subscribe(
     //   response => {

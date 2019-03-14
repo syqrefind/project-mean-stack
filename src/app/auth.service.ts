@@ -9,7 +9,7 @@ import { AuthData } from './auth-data.model';
 const BACKEND_URL = environment.apiUrl + '/user';
 
 // @Injectable({ providedIn: 'root' })
-@Injectable()
+@Injectable({providedIn: 'root'})
 export class AuthService {
   private isAuthenticated = false;
   private token: string;
@@ -20,16 +20,16 @@ export class AuthService {
   constructor(private http: HttpClient, private router: Router) {}
 
   getToken() {
-    this.token = this.getAuthData().token;
-    console.log('the token we get is ' + this.token);
+    // this.token = this.getAuthData().token;
+    // console.log('the token we get is ' + this.token);
     return this.token;
   }
 
   public parseJwt(token) {
-    let base64Url = token.split('.')[1];
-    let base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+    const base64Url = token.split('.')[1];
+    const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
     return JSON.parse(window.atob(base64));
-  };
+  }
 
   getIsAuth() {
     if (localStorage.getItem('token')) {
@@ -60,6 +60,7 @@ export class AuthService {
 
   login(email: string, password: string) {
     const authData: AuthData = { email, password };
+    // console.log('before sending the request to ' + BACKEND_URL + '/login');
     this.http
       .post<{ token: string; expiresIn: number; userId: string }>(
         BACKEND_URL + '/login',
@@ -67,6 +68,7 @@ export class AuthService {
       )
       .subscribe(
         response => {
+          // console.log('response is ' + response);
           const token = response.token;
           this.token = token;
           if (token) {
@@ -79,8 +81,8 @@ export class AuthService {
             const expirationDate = new Date(
               now.getTime() + expiresInDuration * 1000
             );
-            console.log(expirationDate);
-            console.log(this.getToken());
+            // console.log(expirationDate);
+            // console.log(this.getToken());
             this.saveAuthData(token, expirationDate, this.userId);
             this.router.navigate(['/resource']);
           }

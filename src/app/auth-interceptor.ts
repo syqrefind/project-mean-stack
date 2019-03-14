@@ -12,11 +12,12 @@ import { AuthService } from './auth.service';
     constructor(private authService: AuthService) {}
 
     intercept(req: HttpRequest<any>, next: HttpHandler) {
+      // Adding `getAuthData()` into `getToken()` in `auth.service.ts` doesn't work due to the line below
       const authToken = this.authService.getToken();
       const authRequest = req.clone({
         headers: req.headers.set('Authorization', 'Bearer ' + authToken)
       });
-      console.log(authRequest);
+      // console.log(authRequest);
       return next.handle(authRequest);
     }
   }

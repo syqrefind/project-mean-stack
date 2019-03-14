@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Field } from './field';
-import { TemplateFieldComponent } from './template-field/template-field.component'
+import { TemplateFieldComponent } from './template-field/template-field.component';
 import { ChildActivationEnd } from '@angular/router';
 
 @Component({
@@ -19,23 +19,23 @@ export class TemplatePageComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log("On init!")
-    if(!localStorage.getItem('fields')) {
-      localStorage.setItem('fields', '[]')
+    // console.log("On init!")
+    if (!localStorage.getItem('fields')) {
+      localStorage.setItem('fields', '[]');
     }
-    console.log(localStorage.getItem('fields'))
+    // console.log(localStorage.getItem('fields'))
   }
 
   onAddField(event) {
-    console.log("Adding field!");
+    // console.log("Adding field!");
     this.list.push(1);
     this.fields = localStorage.getItem('fields');
-    console.log(this.fields)
+    // console.log(this.fields)
   }
 
   onSave(event) {
-    console.log(event.target);
-    console.log(this.child.fieldName)
+    // console.log(event.target);
+    // console.log(this.child.fieldName)
   }
 
 }

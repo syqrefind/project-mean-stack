@@ -20,6 +20,7 @@ export class ProjectPageComponent implements OnInit {
    pagedItems: any[];
    selectedAll: any;
   //  datum:Array<any>;
+// tslint:disable-next-line: max-line-length
   constructor(public resourceService: ResourceService, public sharedserviceService: SharedserviceService, public projectService: ProjectService) {}
 
   ngOnInit() {
@@ -63,7 +64,7 @@ export class ProjectPageComponent implements OnInit {
 
   getSelectedRecords(fromTable: any[]) {
         const selections = fromTable === this.TableOne ? this.TableOneSelections : this.TabSelections;
-        console.log(selections);
+        // console.log(selections);
       }
 
   onSelectionChanged(event, record, table) {
@@ -96,21 +97,21 @@ projecttwo(event) {
   this.projectService.title = event.target.value;
   this.projectService.readResource({title: event.target.value}).subscribe(
     response => {
-      console.log(event.target.value);
+      // console.log(event.target.value);
       this.TableOne = response.data;
       this.setPage(1);
 
     }  ); }
 
 selectAll() {
-          for (var i = 0; i < this.TableOne.length; i++) {
+          for (let i = 0; i < this.TableOne.length; i++) {
             this.TableOne[i].selected = this.selectedAll;
           }
         }
 
 checkIfAllSelected() {
-          this.selectedAll = this.TableOne.every(function(item: any) {
-              return item.selected == true;
+          this.selectedAll = this.TableOne.every((item: any) => {
+              return item.selected === true;
             });
         }
 

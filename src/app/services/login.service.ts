@@ -11,7 +11,7 @@ export class LoginService {
 
   changeUserName(str) {
     this.username = str;
-    console.log(this.username);
+    // console.log(this.username);
   }
 
 }

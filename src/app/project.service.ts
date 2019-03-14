@@ -31,14 +31,11 @@ export class ProjectService {
 
     readResource(resourceData: ResourceData): Observable<ResourceData> {
 
-      console.log('in service, triggered!!!!');
-  
+    //   console.log('in service, triggered!!!!');
       return this.http.get<ResourceData>(BACKEND_URL + '/readResource/' + this.title + '.0-75');
       // ***********NEED ERROR HANDLING HERE***************
-    } 
+    }
 
-
-  
     getPager(totalItems: number, currentPage: number = 1, pageSize: number = 10) {
       // calculate total pages
       let totalPages = Math.ceil(totalItems / pageSize);
